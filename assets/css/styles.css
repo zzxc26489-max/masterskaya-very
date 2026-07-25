@@ -42,3 +42,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.2}h1{font-size:c
  .hero{padding:130px 7vw 85px}.hero img{object-position:65% center}.section{padding:90px 7vw}.cards{grid-template-columns:repeat(3,1fr)}.world-grid{grid-template-columns:repeat(4,1fr);grid-auto-flow:row;overflow:visible}.split{grid-template-columns:1fr 1fr;align-items:center}.gallery img{height:320px}.gallery img:first-child{height:520px}
  .site-footer{padding:55px 7vw;grid-template-columns:1fr 1fr auto}.mobile-nav{display:none}.page-hero{padding:105px 7vw 65px}
 }
+
+.mush-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mush-grid img{width:100%;height:230px;object-fit:cover;border-radius:12px}
+.mush-grid img:nth-child(3n+1){grid-column:1/-1;height:360px}
+.timeline{display:grid;gap:12px}
+.timeline article{padding:18px;border:1px solid var(--line);background:rgba(255,255,255,.28);border-radius:13px}
+.timeline b{font-family:var(--serif);font-size:25px;color:var(--gold)}
+.timeline h3{margin:5px 0}.timeline p{margin:0;color:var(--muted);font-size:13px}
+@media(min-width:760px){.mush-grid{grid-template-columns:repeat(3,1fr)}.mush-grid img,.mush-grid img:nth-child(3n+1){grid-column:auto;height:330px}.timeline{grid-template-columns:repeat(3,1fr)}}
