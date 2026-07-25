@@ -13,34 +13,38 @@
 <body class="">
 
 <header class="site-header">
-  <a class="logo" href="index.html"><span>✦</span><b>Мастерская<br>Веры</b></a>
-  <button class="menu-toggle" aria-expanded="false" aria-label="Открыть меню">☰</button>
-  <nav class="main-nav"><a class="" href="index.html">Главная</a>
-<a class="" href="worlds.html">Миры</a>
-<a class="" href="residents.html">Жители</a>
-<a class="" href="birth.html">Рождение</a>
-<a class="" href="archive.html">Архив</a>
-<a class="" href="chronicles.html">Хроники</a>
-<a class="" href="guardian-path.html">Путь Хранителя</a><a class="" href="about.html">О Мастерской</a></nav>
+  <div class="header-top">
+    <a class="logo" href="index.html"><span>✦</span><b>Мастерская Веры</b></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Открыть меню">☰</button>
+  </div>
+  <form class="site-search" role="search" action="worlds.html" method="get" autocomplete="off">
+    <span aria-hidden="true">⌕</span><input type="search" name="q" placeholder="Поиск Жителей, коллекций и историй…" aria-label="Поиск по сайту">
+    <div class="search-results" hidden></div>
+  </form>
+  <nav class="main-nav" id="main-navigation"><a class="" href="index.html">Главная</a>
+<a class="" href="worlds.html">Коллекции</a>
+<a class="" href="birth.html">Рождение Жителей</a>
+<a class="" href="chronicles.html">Хроники Мастерской</a>
+<a class="" href="about.html">О Мастерской</a>
+<a class="" href="guardian-path.html">Свиток для путника</a>
+<a class="active" href="contacts.html">Связаться с Мастерской</a></nav>
 </header>
 
 <main><section class="page-hero"><p class="eyebrow">Путь к Хранителю</p><h1>Доставка и упаковка</h1><p>Практическая информация написана прямо и понятно — без сказочных переименований там, где человеку нужны точные условия.</p></section>
 <section class="section alt"><div class="split"><img alt="Упаковка фигурки" src="assets/images/optimized/1784746111805-1280.webp" srcset="assets/images/optimized/1784746111805-480.webp 480w, assets/images/optimized/1784746111805-800.webp 800w, assets/images/optimized/1784746111805-1280.webp 1280w, assets/images/optimized/1784746111805-1800.webp 1800w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw" width="1800" height="2400" loading="lazy" decoding="async"><div class="prose"><h2>Упаковка</h2><p>Каждая работа должна быть надёжно закреплена и защищена от ударов. Визуально упаковка продолжает эстетику Мастерской, но безопасность всегда важнее декоративности.</p><h2>Доставка и оплата</h2><p>Здесь позже появятся точные способы оплаты, сроки отправки, доступные службы доставки и правила для международных заказов.</p><h2>Уход</h2><p>Фигурки рекомендуется беречь от падений, прямого солнца, воды и сильных перепадов температуры. Точные рекомендации зависят от материалов.</p><div class="notice">Все условия сейчас являются шаблоном и должны быть подтверждены Верой до публикации.</div></div></div></section></main>
 
 <footer class="site-footer">
-  <div><b>Мастерская Веры</b><p>Здесь рождаются Жители. Здесь их ждут Хранители.</p></div>
+  <div><b>Мастерская Веры</b><p>Авторские Жители, созданные вручную. У каждого — свой характер и история.</p></div>
   <div class="footer-links">
-    <a href="delivery.html">Доставка и оплата</a>
-    <a href="keepers.html">Хранители</a>
-    <a href="about.html">Контакты</a>
+    <a href="worlds.html">Коллекции</a>
+    <a href="birth.html">Рождение Жителей</a>
+    <a href="guardian-path.html">Свиток для путника</a>
+    <a href="contacts.html">Связаться с Мастерской</a>
   </div>
-  <small>Пробная версия сайта. Описания и характеристики требуют подтверждения у автора.</small>
+  <small>Тексты, наличие и условия заказа уточняются у автора Мастерской.</small>
 </footer>
 <nav class="mobile-nav">
-  <a href="worlds.html">Миры</a>
-  <a href="residents.html">Жители</a>
-  <a href="index.html">Мастерская</a>
-  <a href="archive.html">Архив</a>
+  <a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="residents.html">Жители</a><a href="contacts.html">Связаться</a>
 </nav>
 
 <script src="assets/js/app.js"></script>

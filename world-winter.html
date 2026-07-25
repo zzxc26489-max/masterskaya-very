@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#282019">
-<title>Зимние Легенды — Мастерская Веры</title>
+<title>Зимние легенды — Мастерская Веры</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Prata&display=swap" rel="stylesheet">
@@ -13,34 +13,38 @@
 <body class="">
 
 <header class="site-header">
-  <a class="logo" href="index.html"><span>✦</span><b>Мастерская<br>Веры</b></a>
-  <button class="menu-toggle" aria-expanded="false" aria-label="Открыть меню">☰</button>
-  <nav class="main-nav"><a class="" href="index.html">Главная</a>
-<a class="active" href="worlds.html">Миры</a>
-<a class="" href="residents.html">Жители</a>
-<a class="" href="birth.html">Рождение</a>
-<a class="" href="archive.html">Архив</a>
-<a class="" href="chronicles.html">Хроники</a>
-<a class="" href="guardian-path.html">Путь Хранителя</a><a class="" href="about.html">О Мастерской</a></nav>
+  <div class="header-top">
+    <a class="logo" href="index.html"><span>✦</span><b>Мастерская Веры</b></a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Открыть меню">☰</button>
+  </div>
+  <form class="site-search" role="search" action="worlds.html" method="get" autocomplete="off">
+    <span aria-hidden="true">⌕</span><input type="search" name="q" placeholder="Поиск Жителей, коллекций и историй…" aria-label="Поиск по сайту">
+    <div class="search-results" hidden></div>
+  </form>
+  <nav class="main-nav" id="main-navigation"><a class="" href="index.html">Главная</a>
+<a class="active" href="worlds.html">Коллекции</a>
+<a class="" href="birth.html">Рождение Жителей</a>
+<a class="" href="chronicles.html">Хроники Мастерской</a>
+<a class="" href="about.html">О Мастерской</a>
+<a class="" href="guardian-path.html">Свиток для путника</a>
+<a class="" href="contacts.html">Связаться с Мастерской</a></nav>
 </header>
 
-<main><section class="hero"><img alt="Зимние Легенды" src="assets/images/optimized/1784746111826-1280.webp" srcset="assets/images/optimized/1784746111826-480.webp 480w, assets/images/optimized/1784746111826-800.webp 800w, assets/images/optimized/1784746111826-1280.webp 1280w, assets/images/optimized/1784746111826-1800.webp 1800w" sizes="100vw" width="1800" height="2400" loading="eager" fetchpriority="high" decoding="async"><div class="hero-copy"><p class="eyebrow">Мир</p><h1>Зимние Легенды</h1><p>Щелкунчики, короли и персонажи, которые приходят вместе со снегом.</p></div></section>
+<main><section class="hero"><img alt="Зимние легенды" src="assets/images/optimized/1784746111826-1280.webp" srcset="assets/images/optimized/1784746111826-480.webp 480w, assets/images/optimized/1784746111826-800.webp 800w, assets/images/optimized/1784746111826-1280.webp 1280w, assets/images/optimized/1784746111826-1800.webp 1800w" sizes="100vw" width="1800" height="2400" loading="eager" fetchpriority="high" decoding="async"><div class="hero-copy"><p class="eyebrow">Мир</p><h1>Зимние легенды</h1><p>Щелкунчики, короли и персонажи, которые приходят вместе со снегом.</p></div></section>
 <section class="section alt"><div class="section-head"><div><p class="eyebrow">Обитатели</p><h2>Жители этого Мира</h2></div></div><div class="grid cards"><a class="card" href="resident-nutcracker.html"><img  src="assets/images/optimized/1784746111826-1280.webp" srcset="assets/images/optimized/1784746111826-480.webp 480w, assets/images/optimized/1784746111826-800.webp 800w, assets/images/optimized/1784746111826-1280.webp 1280w, assets/images/optimized/1784746111826-1800.webp 1800w" sizes="100vw" width="1800" height="2400" loading="eager" fetchpriority="high" decoding="async"><div class="card-body"><h3>Щелкунчик Эрнст</h3><p>Житель Рода</p></div></a><a class="card" href="resident-rat-king.html"><img  src="assets/images/optimized/1784746112291-1280.webp" srcset="assets/images/optimized/1784746112291-480.webp 480w, assets/images/optimized/1784746112291-800.webp 800w, assets/images/optimized/1784746112291-1280.webp 1280w, assets/images/optimized/1784746112291-1800.webp 1800w" sizes="(max-width: 760px) 100vw, (max-width: 1200px) 50vw, 33vw" width="1800" height="2456" loading="lazy" decoding="async"><div class="card-body"><h3>Крысиный Король</h3><p>Основатель Рода</p></div></a></div></section></main>
 
 <footer class="site-footer">
-  <div><b>Мастерская Веры</b><p>Здесь рождаются Жители. Здесь их ждут Хранители.</p></div>
+  <div><b>Мастерская Веры</b><p>Авторские Жители, созданные вручную. У каждого — свой характер и история.</p></div>
   <div class="footer-links">
-    <a href="delivery.html">Доставка и оплата</a>
-    <a href="keepers.html">Хранители</a>
-    <a href="about.html">Контакты</a>
+    <a href="worlds.html">Коллекции</a>
+    <a href="birth.html">Рождение Жителей</a>
+    <a href="guardian-path.html">Свиток для путника</a>
+    <a href="contacts.html">Связаться с Мастерской</a>
   </div>
-  <small>Пробная версия сайта. Описания и характеристики требуют подтверждения у автора.</small>
+  <small>Тексты, наличие и условия заказа уточняются у автора Мастерской.</small>
 </footer>
 <nav class="mobile-nav">
-  <a href="worlds.html">Миры</a>
-  <a href="residents.html">Жители</a>
-  <a href="index.html">Мастерская</a>
-  <a href="archive.html">Архив</a>
+  <a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="residents.html">Жители</a><a href="contacts.html">Связаться</a>
 </nav>
 
 <script src="assets/js/app.js"></script>
