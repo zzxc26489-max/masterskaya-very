@@ -84,3 +84,23 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #d8b5
 @media(max-width:759px){
   .main-nav.open{max-height:calc(100vh - 150px);overflow-y:auto}
 }
+
+/* v0.4.2: full-width header and mobile header refinements */
+html,body{width:100%;max-width:100%;overflow-x:hidden}
+.site-header{
+  width:100%;
+  max-width:none;
+  margin:0;
+  left:0;
+  right:0;
+  box-sizing:border-box;
+}
+@media(max-width:759px){
+  .site-header{grid-template-columns:minmax(0,1fr);padding:10px 16px 12px}
+  .header-top{width:100%;justify-content:space-between}
+  .logo{min-width:0;margin-right:0}
+  .logo b{font-size:clamp(17px,5.6vw,22px);overflow:hidden;text-overflow:ellipsis}
+  .menu-toggle{flex:0 0 auto}
+  .site-search{max-width:none;min-width:0}
+  .site-search input{min-width:0;font-size:12px}
+}
