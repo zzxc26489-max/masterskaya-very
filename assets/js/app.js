@@ -1,18 +1,23 @@
 const menuButton = document.querySelector('.menu-toggle');
 const mainNav = document.querySelector('.main-nav');
+let menuReturnFocus;
 
 function closeMenu() {
   if (!menuButton || !mainNav) return;
   mainNav.classList.remove('open');
   menuButton.setAttribute('aria-expanded', 'false');
   menuButton.setAttribute('aria-label', 'Открыть меню');
+  if (menuReturnFocus) menuReturnFocus.focus();
+  menuReturnFocus = null;
 }
 
 menuButton?.addEventListener('click', () => {
   if (!mainNav) return;
   const isOpen = mainNav.classList.toggle('open');
+  if (isOpen) menuReturnFocus = document.activeElement;
   menuButton.setAttribute('aria-expanded', String(isOpen));
   menuButton.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+  if (isOpen) mainNav.querySelector('a')?.focus();
 });
 
 mainNav?.addEventListener('click', (event) => {
