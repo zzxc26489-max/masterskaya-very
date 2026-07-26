@@ -92,6 +92,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.
 .footer-brand p, .footer-note { margin: 14px 0 0; color: #9f9181; font-size: .75rem; }
 .footer-links { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px 30px; }
 .footer-links a { min-height: 36px; color: #cbbdab; font-size: .78rem; }
+.site-version-link { grid-column: 1 / -1; justify-self: start; color: #9f9181; font-size: .7rem; text-decoration: underline; text-decoration-color: rgba(216,187,130,.35); text-underline-offset: 3px; }
+.site-version-link:hover, .site-version-link:focus-visible { color: var(--color-text-on-dark); }
 
 @media (hover: hover) {
   .button:hover { transform: translateY(-2px); }
