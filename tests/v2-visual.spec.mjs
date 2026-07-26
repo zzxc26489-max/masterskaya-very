@@ -24,13 +24,22 @@ test.beforeAll(async () => {
 });
 
 async function revealWholePage(page) {
-  await page.evaluate(async () => {
-    const step = Math.max(240, Math.floor(window.innerHeight * 0.65));
-    for (let position = 0; position < document.documentElement.scrollHeight; position += step) {
-      window.scrollTo(0, position);
-      await new Promise((resolve) => setTimeout(resolve, 35));
-    }
-    window.scrollTo(0, 0);
+  const reveals = page.locator('.reveal');
+  const count = await reveals.count();
+
+  for (let index = 0; index < count; index += 1) {
+    const element = reveals.nth(index);
+    await element.scrollIntoViewIfNeeded();
+    await expect(element).toHaveClass(/is-visible/, { timeout: 3_000 });
+  }
+
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.waitForTimeout(100);
+}
+
+async function waitForImages(page) {
+  await page.waitForFunction(() => [...document.images].every((image) => image.complete), null, {
+    timeout: 15_000
   });
 }
 
@@ -53,6 +62,7 @@ async function inspectPage(page, pageDefinition, viewport) {
   await page.evaluate(() => document.fonts?.ready);
   await expect(page.locator('main')).toBeVisible();
   await revealWholePage(page);
+  await waitForImages(page);
 
   const menuButton = page.locator('[data-menu-toggle]');
   const navigation = page.locator('[data-navigation]');
@@ -62,9 +72,14 @@ async function inspectPage(page, pageDefinition, viewport) {
     await menuButton.click();
     await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
     await expect(navigation).toHaveClass(/is-open/);
+
+    const openMenuWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    expect(openMenuWidth, `open menu overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(viewport.width + 1);
+
     await page.keyboard.press('Escape');
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
     await expect(menuButton).toBeFocused();
+    await page.evaluate(() => document.activeElement?.blur());
   } else {
     await expect(menuButton).toBeHidden();
     await expect(navigation).toBeVisible();
@@ -73,11 +88,25 @@ async function inspectPage(page, pageDefinition, viewport) {
   const layout = await page.evaluate(() => ({
     documentWidth: document.documentElement.scrollWidth,
     viewportWidth: document.documentElement.clientWidth,
-    bodyWidth: document.body.scrollWidth
+    overflowingElements: [...document.querySelectorAll('body *')]
+      .filter((element) => {
+        const style = getComputedStyle(element);
+        if (style.display === 'none' || style.visibility === 'hidden') return false;
+        const rect = element.getBoundingClientRect();
+        if (rect.width === 0 && rect.height === 0) return false;
+        return rect.left < -1 || rect.right > window.innerWidth + 1;
+      })
+      .slice(0, 12)
+      .map((element) => ({
+        tag: element.tagName.toLowerCase(),
+        className: element.className || '',
+        text: (element.textContent || '').trim().slice(0, 80),
+        rect: element.getBoundingClientRect().toJSON()
+      }))
   }));
 
   const brokenImages = await page.locator('img').evaluateAll((images) => images
-    .filter((image) => !image.complete || image.naturalWidth === 0)
+    .filter((image) => image.naturalWidth === 0)
     .map((image) => image.currentSrc || image.getAttribute('src') || image.alt));
 
   const hero = page.locator('.hero');
@@ -96,7 +125,7 @@ async function inspectPage(page, pageDefinition, viewport) {
   await page.screenshot({ path: screenshotPath, fullPage: true, animations: 'disabled' });
 
   expect(layout.documentWidth, `horizontal overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(layout.viewportWidth + 1);
-  expect(layout.bodyWidth, `body overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  expect(layout.overflowingElements, `overflowing elements on ${pageDefinition.path}`).toEqual([]);
   expect(brokenImages, `broken images on ${pageDefinition.path}`).toEqual([]);
   expect(failedLocalResources, `failed local resources on ${pageDefinition.path}`).toEqual([]);
   expect(pageErrors, `page errors on ${pageDefinition.path}`).toEqual([]);
@@ -127,12 +156,16 @@ test('resident filters keep semantic state and visible cards in sync', async ({ 
   await availableButton.click();
   await expect(availableButton).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-resident-status="available"]')).toBeVisible();
-  await expect(page.locator('[data-resident-status]:not([data-resident-status="available"])')).toBeHidden();
+
+  const hiddenCards = page.locator('[data-resident-status]:not([data-resident-status="available"])');
+  await expect(hiddenCards).toHaveCount(3);
+  expect(await hiddenCards.evaluateAll((cards) => cards.every((card) => card.hidden))).toBe(true);
 
   const allButton = page.locator('[data-resident-filter="all"]');
   await allButton.click();
   await expect(allButton).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-resident-status]')).toHaveCount(4);
+  expect(await page.locator('[data-resident-status]').evaluateAll((cards) => cards.every((card) => !card.hidden))).toBe(true);
   await context.close();
 });
 
@@ -153,8 +186,13 @@ test('reduced motion exposes content without reveal transitions', async ({ brows
     };
   });
 
+  const transitionSeconds = revealState.transitionDuration
+    .split(',')
+    .map((value) => Number.parseFloat(value))
+    .filter(Number.isFinite);
+
   expect(revealState.opacity).toBe('1');
   expect(revealState.transform).toBe('none');
-  expect(['0s', '0.00001s']).toContain(revealState.transitionDuration);
+  expect(Math.max(...transitionSeconds, 0)).toBeLessThanOrEqual(0.001);
   await context.close();
 });
