@@ -9,6 +9,6 @@
     "test:v2": "npm run check:v2:js && npm run check:v2:audit && npm run test:v2:browser"
   },
   "devDependencies": {
-    "@playwright/test": "1.62.0"
+    "@playwright/test": "1.61.1"
   }
 }
