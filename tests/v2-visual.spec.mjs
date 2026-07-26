@@ -24,16 +24,17 @@ test.beforeAll(async () => {
 });
 
 async function revealWholePage(page) {
+  await page.addStyleTag({ content: 'html { scroll-behavior: auto !important; }' });
   const reveals = page.locator('.reveal');
   const count = await reveals.count();
 
   for (let index = 0; index < count; index += 1) {
     const element = reveals.nth(index);
-    await element.scrollIntoViewIfNeeded();
+    await element.evaluate((node) => node.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' }));
     await expect(element).toHaveClass(/is-visible/, { timeout: 3_000 });
   }
 
-  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.evaluate(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }));
   await page.waitForTimeout(100);
 }
 
@@ -87,21 +88,40 @@ async function inspectPage(page, pageDefinition, viewport) {
 
   const layout = await page.evaluate(() => ({
     documentWidth: document.documentElement.scrollWidth,
+    bodyWidth: document.body.scrollWidth,
     viewportWidth: document.documentElement.clientWidth,
     overflowingElements: [...document.querySelectorAll('body *')]
-      .filter((element) => {
+      .map((element) => {
         const style = getComputedStyle(element);
-        if (style.display === 'none' || style.visibility === 'hidden') return false;
         const rect = element.getBoundingClientRect();
-        if (rect.width === 0 && rect.height === 0) return false;
-        return rect.left < -1 || rect.right > window.innerWidth + 1;
+        return {
+          element,
+          style,
+          rect,
+          isOutside: rect.left < -1 || rect.right > window.innerWidth + 1,
+          hasInternalOverflow: element.scrollWidth > element.clientWidth + 1
+        };
       })
+      .filter(({ element, style, rect, isOutside, hasInternalOverflow }) => {
+        if (style.display === 'none' || style.visibility === 'hidden') return false;
+        if (rect.width === 0 && rect.height === 0) return false;
+        if (element === document.documentElement || element === document.body) return false;
+        return isOutside || hasInternalOverflow;
+      })
+      .sort((left, right) => Math.max(right.rect.right - window.innerWidth, right.element.scrollWidth - right.element.clientWidth) - Math.max(left.rect.right - window.innerWidth, left.element.scrollWidth - left.element.clientWidth))
       .slice(0, 12)
-      .map((element) => ({
+      .map(({ element, rect, isOutside, hasInternalOverflow }) => ({
         tag: element.tagName.toLowerCase(),
-        className: element.className || '',
-        text: (element.textContent || '').trim().slice(0, 80),
-        rect: element.getBoundingClientRect().toJSON()
+        id: element.id || '',
+        className: typeof element.className === 'string' ? element.className : '',
+        text: (element.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 100),
+        clientWidth: element.clientWidth,
+        scrollWidth: element.scrollWidth,
+        isOutside,
+        hasInternalOverflow,
+        left: Math.round(rect.left),
+        right: Math.round(rect.right),
+        width: Math.round(rect.width)
       }))
   }));
 
@@ -125,6 +145,7 @@ async function inspectPage(page, pageDefinition, viewport) {
   await page.screenshot({ path: screenshotPath, fullPage: true, animations: 'disabled' });
 
   expect(layout.documentWidth, `horizontal overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(layout.viewportWidth + 1);
+  expect(layout.bodyWidth, `body overflow on ${pageDefinition.path}; suspects: ${JSON.stringify(layout.overflowingElements)}`).toBeLessThanOrEqual(layout.viewportWidth + 1);
   expect(layout.overflowingElements, `overflowing elements on ${pageDefinition.path}`).toEqual([]);
   expect(brokenImages, `broken images on ${pageDefinition.path}`).toEqual([]);
   expect(failedLocalResources, `failed local resources on ${pageDefinition.path}`).toEqual([]);
