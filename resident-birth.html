@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#282019" name="theme-color"/>
+<title>Рождение Жителя — Мастерская Веры</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=Prata&amp;display=swap" rel="stylesheet"/>
+<link href="assets/css/styles.css" rel="stylesheet"/>
+</head>
+<body>
+<header class="site-header">
+<div class="header-top"><a class="logo" href="index.html"><span>✦</span><b>Мастерская Веры</b></a><button aria-controls="main-navigation" aria-expanded="false" aria-label="Открыть меню" class="menu-toggle" type="button">☰</button></div>
+<form action="worlds.html" autocomplete="off" class="site-search" method="get" role="search"><span aria-hidden="true">⌕</span><input aria-label="Поиск по сайту" name="q" placeholder="Найти Жителя или коллекцию…" type="search"/><div class="search-results" hidden=""></div></form>
+<nav class="main-nav" id="main-navigation"><a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="birth.html">Рождение Жителей</a><a class="active" href="resident-birth.html">Создать Жителя</a><a href="chronicles.html">Хроники Мастерской</a><a href="about.html">О Мастерской</a><a href="guardian-path.html">Свиток для путника</a><a href="contacts.html">Связаться с Мастерской</a></nav>
+</header>
+<main>
+<section class="page-hero constructor-intro"><p class="eyebrow">Интерактивный набросок</p><h1>Рождение Жителя</h1><p>Выберите основу, воплощение, глаза и украшения. Образ, характер и история Жителя изменятся вместе с вашим выбором.</p></section>
+<section class="section constructor-shell" data-constructor>
+<div class="constructor-preview">
+<div class="preview-frame"><img id="residentPreview" src="assets/images/constructor/dragon-light-4.webp" alt="Предварительный образ Жителя"/></div>
+<div class="status-row"><span class="availability order">Под заказ</span><span>Ручная работа · точное повторение невозможно</span></div>
+<div class="legend-card">
+<p class="eyebrow">Ваш Житель</p><h2 id="residentName">Перламутровый страж</h2>
+<div class="legend-grid"><div><b>Происхождение</b><p id="residentOrigin">Рождён среди холодных скал, где лунный свет остаётся на снегу до самого утра.</p></div><div><b>Характер</b><p id="residentCharacter">Спокойный, наблюдательный и преданный.</p></div><div><b>История</b><p id="residentStory">Он хранит тишину зимних дорог и приходит к тем, кому нужен надёжный спутник.</p></div></div>
+</div>
+</div>
+<div class="constructor-controls">
+<div class="constructor-steps"><span class="active">1 Основа</span><span>2 Облик</span><span>3 Детали</span><span>4 Легенда</span></div>
+<fieldset><legend>Выберите основу</legend><div class="choice-grid two"><button class="choice selected" data-base="dragon" type="button">🐉 Дракон</button><button class="choice" data-base="horse" type="button">🐎 Королевский конь</button></div></fieldset>
+<fieldset><legend>Выберите воплощение</legend><div class="variant-grid" id="variantGrid"></div></fieldset>
+<fieldset><legend>Цвет глаз</legend><div class="eye-grid"><button class="eye selected" data-eye="Ледяные" data-tone="ice" aria-label="Ледяные глаза" type="button"></button><button class="eye amber" data-eye="Янтарные" data-tone="fire" aria-label="Янтарные глаза" type="button"></button><button class="eye emerald" data-eye="Изумрудные" data-tone="forest" aria-label="Изумрудные глаза" type="button"></button><button class="eye violet" data-eye="Аметистовые" data-tone="mystic" aria-label="Аметистовые глаза" type="button"></button><button class="eye night" data-eye="Ночные" data-tone="night" aria-label="Ночные глаза" type="button"></button></div></fieldset>
+<fieldset><legend>Особые детали</legend><div class="detail-grid"><label><input type="checkbox" value="Корона" data-detail="crown"/> Корона</label><label><input type="checkbox" value="Цепочка" data-detail="chain"/> Цепочка</label><label><input type="checkbox" value="Амулет" data-detail="amulet"/> Амулет</label><label><input type="checkbox" value="Камни" data-detail="stones"/> Декоративные камни</label></div></fieldset>
+<fieldset><legend>Имя Жителя</legend><div class="name-row"><input id="customName" maxlength="30" placeholder="Оставьте имя из легенды или напишите своё"/><button class="ghost-btn" id="randomName" type="button">Придумать имя</button></div></fieldset>
+<div class="estimate"><div><small>Предварительная стоимость</small><strong id="residentPrice">уточняется Мастерской</strong><small>Цена будет добавлена после утверждения прайса</small></div><button class="btn" id="guardianButton" type="button">Стать Хранителем этого Жителя</button></div>
+<p class="constructor-note">Конструктор помогает передать идею Вере. Каждый Житель лепится и расписывается вручную, поэтому готовая работа сохранит собственные особенности.</p>
+</div>
+</section>
+</main>
+<footer class="site-footer"><div><b>Мастерская Веры</b><p>Авторские Жители, созданные вручную. У каждого — свой характер и история.</p></div><div class="footer-links"><a href="worlds.html">Коллекции</a><a href="resident-birth.html">Рождение Жителя</a><a href="guardian-path.html">Свиток для путника</a><a href="contacts.html">Связаться с Мастерской</a></div><small>Наличие готовых работ, сроки и условия индивидуального заказа подтверждаются перед оформлением.</small></footer>
+<nav class="mobile-nav"><a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="resident-birth.html">Создать</a><a href="contacts.html">Связаться</a></nav>
+<script src="assets/js/app.js"></script><script src="assets/js/constructor.js"></script>
+</body></html>
