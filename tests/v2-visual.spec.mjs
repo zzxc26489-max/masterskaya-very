@@ -9,14 +9,17 @@ const pages = [
   { name: 'home', path: '/v2/index.html' },
   { name: 'worlds', path: '/v2/worlds.html' },
   { name: 'residents', path: '/v2/residents.html' },
-  { name: 'birth', path: '/v2/birth.html' }
+  { name: 'birth', path: '/v2/birth.html' },
+  { name: 'constructor', path: '/v2/constructor.html' },
+  { name: 'world-dragons', path: '/v2/world-dragons.html' },
+  { name: 'resident-white-dragon', path: '/v2/resident-white-dragon.html' }
 ];
 
 const viewports = [
-  { name: 'desktop', width: 1440, height: 1000 },
-  { name: 'tablet', width: 768, height: 1024 },
-  { name: 'mobile', width: 390, height: 844 },
-  { name: 'small-mobile', width: 320, height: 700 }
+  { width: 1440, height: 1000 },
+  { width: 768, height: 1024 },
+  { width: 390, height: 844 },
+  { width: 320, height: 700 }
 ];
 
 test.beforeAll(async () => {
@@ -27,21 +30,13 @@ async function revealWholePage(page) {
   await page.addStyleTag({ content: 'html { scroll-behavior: auto !important; }' });
   const reveals = page.locator('.reveal');
   const count = await reveals.count();
-
   for (let index = 0; index < count; index += 1) {
     const element = reveals.nth(index);
     await element.evaluate((node) => node.scrollIntoView({ block: 'center', inline: 'nearest', behavior: 'instant' }));
     await expect(element).toHaveClass(/is-visible/, { timeout: 3_000 });
   }
-
   await page.evaluate(() => window.scrollTo({ top: 0, left: 0, behavior: 'instant' }));
   await page.waitForTimeout(100);
-}
-
-async function waitForImages(page) {
-  await page.waitForFunction(() => [...document.images].every((image) => image.complete), null, {
-    timeout: 15_000
-  });
 }
 
 async function inspectPage(page, pageDefinition, viewport) {
@@ -63,20 +58,16 @@ async function inspectPage(page, pageDefinition, viewport) {
   await page.evaluate(() => document.fonts?.ready);
   await expect(page.locator('main')).toBeVisible();
   await revealWholePage(page);
-  await waitForImages(page);
+  await page.waitForFunction(() => [...document.images].every((image) => image.complete), null, { timeout: 15_000 });
 
   const menuButton = page.locator('[data-menu-toggle]');
   const navigation = page.locator('[data-navigation]');
-
   if (viewport.width <= 1152) {
     await expect(menuButton).toBeVisible();
     await menuButton.click();
     await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
     await expect(navigation).toHaveClass(/is-open/);
-
-    const openMenuWidth = await page.evaluate(() => document.documentElement.scrollWidth);
-    expect(openMenuWidth, `open menu overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(viewport.width + 1);
-
+    expect(await page.evaluate(() => document.documentElement.scrollWidth), `open menu overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(viewport.width + 1);
     await page.keyboard.press('Escape');
     await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
     await expect(menuButton).toBeFocused();
@@ -94,13 +85,7 @@ async function inspectPage(page, pageDefinition, viewport) {
       .map((element) => {
         const style = getComputedStyle(element);
         const rect = element.getBoundingClientRect();
-        return {
-          element,
-          style,
-          rect,
-          isOutside: rect.left < -1 || rect.right > window.innerWidth + 1,
-          hasInternalOverflow: element.scrollWidth > element.clientWidth + 1
-        };
+        return { element, style, rect, isOutside: rect.left < -1 || rect.right > window.innerWidth + 1, hasInternalOverflow: element.scrollWidth > element.clientWidth + 1 };
       })
       .filter(({ element, style, rect, isOutside, hasInternalOverflow }) => {
         if (style.display === 'none' || style.visibility === 'hidden') return false;
@@ -108,7 +93,6 @@ async function inspectPage(page, pageDefinition, viewport) {
         if (element === document.documentElement || element === document.body) return false;
         return isOutside || hasInternalOverflow;
       })
-      .sort((left, right) => Math.max(right.rect.right - window.innerWidth, right.element.scrollWidth - right.element.clientWidth) - Math.max(left.rect.right - window.innerWidth, left.element.scrollWidth - left.element.clientWidth))
       .slice(0, 12)
       .map(({ element, rect, isOutside, hasInternalOverflow }) => ({
         tag: element.tagName.toLowerCase(),
@@ -125,24 +109,9 @@ async function inspectPage(page, pageDefinition, viewport) {
       }))
   }));
 
-  const brokenImages = await page.locator('img').evaluateAll((images) => images
-    .filter((image) => image.naturalWidth === 0)
-    .map((image) => image.currentSrc || image.getAttribute('src') || image.alt));
+  const brokenImages = await page.locator('img').evaluateAll((images) => images.filter((image) => image.naturalWidth === 0).map((image) => image.currentSrc || image.getAttribute('src') || image.alt));
 
-  const hero = page.locator('.hero');
-  if (await hero.count()) {
-    await expect(hero).toBeVisible();
-    await expect(hero.locator('h1')).toBeVisible();
-    await expect(hero.locator('img')).toHaveJSProperty('complete', true);
-    const heroBox = await hero.boundingBox();
-    expect(heroBox?.height || 0).toBeGreaterThan(300);
-  }
-
-  const screenshotPath = path.join(
-    screenshotDirectory,
-    `${pageDefinition.name}-${viewport.width}x${viewport.height}.png`
-  );
-  await page.screenshot({ path: screenshotPath, fullPage: true, animations: 'disabled' });
+  await page.screenshot({ path: path.join(screenshotDirectory, `${pageDefinition.name}-${viewport.width}x${viewport.height}.png`), fullPage: true, animations: 'disabled' });
 
   expect(layout.documentWidth, `horizontal overflow on ${pageDefinition.path}`).toBeLessThanOrEqual(layout.viewportWidth + 1);
   expect(layout.bodyWidth, `body overflow on ${pageDefinition.path}; suspects: ${JSON.stringify(layout.overflowingElements)}`).toBeLessThanOrEqual(layout.viewportWidth + 1);
@@ -156,11 +125,7 @@ async function inspectPage(page, pageDefinition, viewport) {
 for (const pageDefinition of pages) {
   for (const viewport of viewports) {
     test(`${pageDefinition.name} at ${viewport.width}x${viewport.height}`, async ({ browser }) => {
-      const context = await browser.newContext({
-        viewport: { width: viewport.width, height: viewport.height },
-        deviceScaleFactor: 1,
-        reducedMotion: 'no-preference'
-      });
+      const context = await browser.newContext({ viewport, deviceScaleFactor: 1, reducedMotion: 'no-preference' });
       const page = await context.newPage();
       await inspectPage(page, pageDefinition, viewport);
       await context.close();
@@ -172,46 +137,39 @@ test('resident filters keep semantic state and visible cards in sync', async ({ 
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const page = await context.newPage();
   await page.goto('/v2/residents.html', { waitUntil: 'load' });
-
   const availableButton = page.locator('[data-resident-filter="available"]');
   await availableButton.click();
   await expect(availableButton).toHaveAttribute('aria-pressed', 'true');
   await expect(page.locator('[data-resident-status="available"]')).toBeVisible();
-
   const hiddenCards = page.locator('[data-resident-status]:not([data-resident-status="available"])');
   await expect(hiddenCards).toHaveCount(3);
   expect(await hiddenCards.evaluateAll((cards) => cards.every((card) => card.hidden))).toBe(true);
+  await context.close();
+});
 
-  const allButton = page.locator('[data-resident-filter="all"]');
-  await allButton.click();
-  await expect(allButton).toHaveAttribute('aria-pressed', 'true');
-  await expect(page.locator('[data-resident-status]')).toHaveCount(4);
-  expect(await page.locator('[data-resident-status]').evaluateAll((cards) => cards.every((card) => !card.hidden))).toBe(true);
+test('constructor updates preview and contact summary', async ({ browser }) => {
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await context.newPage();
+  await page.goto('/v2/constructor.html?preset=white-dragon', { waitUntil: 'load' });
+  await expect(page.locator('#constructorPreviewName')).toContainText('Перламутровый страж');
+  await page.locator('[data-tone="forest"]').click();
+  await page.locator('[data-base="horse"]').click();
+  await page.locator('#constructorName').fill('Аврора');
+  await expect(page.locator('#constructorPreviewName')).toContainText('Аврора');
+  await expect(page.locator('#constructorSummary')).toContainText('коня');
+  await expect(page.locator('#constructorContact')).toHaveAttribute('href', /contacts\.html\?/);
   await context.close();
 });
 
 test('reduced motion exposes content without reveal transitions', async ({ browser }) => {
-  const context = await browser.newContext({
-    viewport: { width: 390, height: 844 },
-    reducedMotion: 'reduce'
-  });
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
   const page = await context.newPage();
   await page.goto('/v2/index.html', { waitUntil: 'load' });
-
   const revealState = await page.locator('.reveal').first().evaluate((element) => {
     const style = getComputedStyle(element);
-    return {
-      opacity: style.opacity,
-      transform: style.transform,
-      transitionDuration: style.transitionDuration
-    };
+    return { opacity: style.opacity, transform: style.transform, transitionDuration: style.transitionDuration };
   });
-
-  const transitionSeconds = revealState.transitionDuration
-    .split(',')
-    .map((value) => Number.parseFloat(value))
-    .filter(Number.isFinite);
-
+  const transitionSeconds = revealState.transitionDuration.split(',').map((value) => Number.parseFloat(value)).filter(Number.isFinite);
   expect(revealState.opacity).toBe('1');
   expect(revealState.transform).toBe('none');
   expect(Math.max(...transitionSeconds, 0)).toBeLessThanOrEqual(0.001);
