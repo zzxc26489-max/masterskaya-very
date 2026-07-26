@@ -102,8 +102,10 @@ if (document.body && window.location.pathname.endsWith('contacts.html')) {
   }
 }
 
-// v0.4.6: мягкая сказочная атмосфера, карта и переходы.
-document.body?.classList.add('page-enter');
+// v0.4.6: мягкая сказочная атмосфера, карта и переходы внутренних страниц.
+// Главная использует спокойную дизайн-систему без случайных декоративных частиц.
+if (!document.body?.classList.contains('home-page')) {
+document.body.classList.add('page-enter');
 
 const fairyLayer = document.createElement('div');
 fairyLayer.className = 'fairy-layer';
@@ -172,3 +174,4 @@ document.addEventListener('click', (event) => {
   document.body.classList.add('page-leave');
   window.setTimeout(() => window.location.assign(destination.href), 230);
 });
+}

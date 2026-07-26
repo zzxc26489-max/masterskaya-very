@@ -1,0 +1,34 @@
+/* Единые основы визуального языка Мастерской. Новые страницы могут подключать этот файл независимо. */
+:root {
+  --color-page: #1b1310;
+  --color-card: #2b201a;
+  --color-parchment: #eee3ce;
+  --color-parchment-light: #f7f0e3;
+  --color-text: #30241d;
+  --color-text-muted: #756659;
+  --color-text-on-dark: #f2e7d4;
+  --color-text-on-dark-muted: #c2b29f;
+  --color-gold: #bd9659;
+  --color-gold-soft: #d8bb82;
+  --color-wine: #681f24;
+  --color-forest: #26382d;
+  --color-border: rgba(104, 76, 45, .28);
+  --color-border-dark: rgba(216, 187, 130, .3);
+  --shadow-card: 0 18px 45px rgba(14, 8, 5, .24);
+  --shadow-soft: 0 12px 32px rgba(48, 31, 20, .12);
+  --radius-small: 4px;
+  --radius-card: 12px;
+  --radius-large: 20px;
+  --container: 1240px;
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+  --space-section: clamp(4rem, 8vw, 7rem);
+  --transition-fast: 160ms;
+  --transition-base: 260ms;
+  --font-display: "Prata", Georgia, serif;
+  --font-body: "Manrope", Arial, sans-serif;
+}
