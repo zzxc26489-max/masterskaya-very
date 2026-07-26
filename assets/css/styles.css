@@ -335,3 +335,12 @@ body.page-leave main,body.page-leave .site-footer{opacity:0;transform:translateY
   .birth-page .variant-grid{grid-auto-columns:52%}
   .birth-page .detail-grid{grid-template-columns:1fr}
 }
+/* Resident worlds and layered stage */
+[data-world-theme="winter"]{--world-accent:#9bb9c9;--world-bg:linear-gradient(145deg,#17232c,#293b46)}
+[data-world-theme="forest"]{--world-accent:#a58b52;--world-bg:linear-gradient(145deg,#17251d,#314331)}
+[data-world-theme="ancient"]{--world-accent:#b18a57;--world-bg:linear-gradient(145deg,#191817,#38332d)}
+[data-world-theme="folklore"]{--world-accent:#b8794d;--world-bg:linear-gradient(145deg,#281b1a,#483026)}
+.resident-stage{position:relative;aspect-ratio:1;max-width:620px;margin:auto;overflow:hidden;border-radius:var(--radius-large);background:var(--world-bg,#211914);isolation:isolate}
+.resident-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;transition:opacity .26s ease,filter .26s ease}.resident-layer--eyes,.resident-layer--decoration{pointer-events:none}.resident-stage:focus-within{outline:2px solid var(--color-gold)}
+.tone-fire .resident-layer--body{filter:saturate(1.15) sepia(.2)}
+@media (prefers-reduced-motion:reduce){.resident-layer{transition:none}}

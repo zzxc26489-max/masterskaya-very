@@ -40,10 +40,16 @@
   let base = 'dragon';
   let index = 3;
   let tone = 'ice';
+  const presetId = new URLSearchParams(location.search).get('preset');
+  const preset = window.RESIDENTS?.find(r => r.id === presetId);
+  if (preset?.constructorPreset) { base = preset.constructorPreset.base || base; index = preset.constructorPreset.index ?? index; tone = preset.constructorPreset.tone || tone; }
 
   const grid = document.getElementById('variantGrid');
   const img = document.getElementById('residentPreview');
   const stage = document.querySelector('.preview-stage');
+  const residentStage = document.querySelector('.resident-stage');
+  const eyesLayer = document.getElementById('residentEyes');
+  const decorationLayer = document.getElementById('residentDecoration');
   const name = document.getElementById('residentName');
   const origin = document.getElementById('residentOrigin');
   const character = document.getElementById('residentCharacter');
@@ -68,6 +74,10 @@
       img.src = v[1];
       img.alt = v[0];
       stage.dataset.tonePreview = tone;
+      residentStage?.setAttribute('data-eye-tone', tone);
+      residentStage?.classList.toggle('tone-fire', tone === 'fire');
+      if (eyesLayer) { eyesLayer.alt = `${eye[0]} глаза`; eyesLayer.style.opacity = '1'; eyesLayer.style.filter = `hue-rotate(${tone === 'fire' ? 25 : tone === 'forest' ? 95 : tone === 'mystic' ? 210 : tone === 'night' ? 270 : 0}deg) saturate(1.4)`; }
+      if (decorationLayer) { decorationLayer.alt = details.length ? details.join(', ') : ''; decorationLayer.style.opacity = details.length ? '.8' : '0'; }
       stage.classList.remove('is-changing');
     }, 130);
 
@@ -134,5 +144,6 @@
   });
 
   renderVariants();
+  root.querySelectorAll('[data-tone]').forEach(x => x.classList.toggle('selected', x.dataset.tone === tone));
   update();
 })();
