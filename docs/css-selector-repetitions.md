@@ -2,165 +2,188 @@
 
 | Selector | Base definitions | Media overrides | Total |
 |---|---:|---:|---:|
+| `:root` | 3 | 0 | 3 |
 | `*` | 2 | 0 | 2 |
-| `html` | 2 | 0 | 2 |
-| `body` | 2 | 0 | 2 |
-| `a` | 2 | 0 | 2 |
+| `html` | 3 | 0 | 3 |
+| `body` | 4 | 2 | 6 |
+| `a` | 3 | 0 | 3 |
 | `img` | 3 | 0 | 3 |
 | `main` | 2 | 0 | 2 |
-| `.site-header` | 3 | 0 | 3 |
-| `.logo` | 4 | 0 | 4 |
+| `.site-header` | 5 | 7 | 12 |
+| `.logo` | 3 | 1 | 4 |
 | `.logo span` | 2 | 0 | 2 |
-| `.logo b` | 7 | 0 | 7 |
-| `.menu-toggle` | 5 | 0 | 5 |
-| `.main-nav` | 7 | 0 | 7 |
-| `.main-nav.open` | 2 | 0 | 2 |
-| `.main-nav a` | 5 | 0 | 5 |
-| `.main-nav a.active` | 2 | 0 | 2 |
-| `h1,h2,h3` | 2 | 0 | 2 |
+| `.logo b` | 3 | 4 | 7 |
+| `.menu-toggle` | 3 | 3 | 6 |
+| `.main-nav` | 4 | 5 | 9 |
+| `.main-nav.open` | 1 | 3 | 4 |
+| `.main-nav a` | 2 | 3 | 5 |
+| `.main-nav a.active` | 3 | 0 | 3 |
+| `h1` | 3 | 0 | 3 |
+| `h2` | 3 | 0 | 3 |
+| `h3` | 2 | 0 | 2 |
 | `.eyebrow` | 2 | 0 | 2 |
-| `.btn` | 2 | 0 | 2 |
-| `.ghost-btn` | 2 | 0 | 2 |
-| `.hero` | 4 | 0 | 4 |
-| `.hero img` | 2 | 0 | 2 |
+| `.btn` | 4 | 0 | 4 |
+| `.ghost-btn` | 4 | 0 | 4 |
+| `.hero` | 2 | 3 | 5 |
+| `.hero img` | 2 | 2 | 4 |
 | `.hero-copy` | 2 | 0 | 2 |
-| `.hero h1` | 4 | 0 | 4 |
-| `.hero-actions` | 3 | 0 | 3 |
-| `.section` | 4 | 0 | 4 |
+| `.hero h1` | 2 | 2 | 4 |
+| `.hero-actions` | 2 | 1 | 3 |
+| `.section` | 2 | 2 | 4 |
 | `.section.alt` | 2 | 0 | 2 |
 | `.section.dark` | 2 | 0 | 2 |
-| `.section-head` | 4 | 0 | 4 |
-| `.section-head h2` | 3 | 0 | 3 |
-| `.cards` | 2 | 0 | 2 |
-| `.card` | 2 | 0 | 2 |
-| `.card p` | 2 | 0 | 2 |
-| `.world-grid` | 4 | 0 | 4 |
-| `.world-tile` | 2 | 0 | 2 |
-| `.world-tile img` | 2 | 0 | 2 |
-| `.world-tile h3` | 2 | 0 | 2 |
-| `.world-tile p` | 2 | 0 | 2 |
-| `.split` | 4 | 0 | 4 |
-| `.gallery img` | 2 | 0 | 2 |
-| `.gallery img:first-child` | 2 | 0 | 2 |
-| `.site-footer` | 2 | 0 | 2 |
-| `.mobile-nav` | 4 | 0 | 4 |
-| `.mobile-nav a` | 4 | 0 | 4 |
-| `.page-hero` | 2 | 0 | 2 |
-| `.timeline` | 2 | 0 | 2 |
-| `.header-top` | 3 | 0 | 3 |
-| `.site-search` | 6 | 0 | 6 |
-| `.site-search input` | 3 | 0 | 3 |
+| `.section-head` | 2 | 2 | 4 |
+| `.section-head h2` | 2 | 1 | 3 |
+| `.cards` | 1 | 1 | 2 |
+| `.card` | 3 | 0 | 3 |
+| `.card img` | 3 | 1 | 4 |
+| `.card-body` | 2 | 0 | 2 |
+| `.card h3` | 2 | 0 | 2 |
+| `.card p` | 3 | 0 | 3 |
+| `.world-grid` | 2 | 4 | 6 |
+| `.world-tile` | 2 | 1 | 3 |
+| `.world-tile img` | 3 | 2 | 5 |
+| `.world-tile h3` | 2 | 1 | 3 |
+| `.world-tile p` | 2 | 1 | 3 |
+| `.split` | 2 | 2 | 4 |
+| `.gallery img` | 1 | 1 | 2 |
+| `.gallery img:first-child` | 1 | 1 | 2 |
+| `.site-footer` | 1 | 1 | 2 |
+| `.mobile-nav` | 3 | 3 | 6 |
+| `.mobile-nav a` | 1 | 4 | 5 |
+| `.page-hero` | 1 | 1 | 2 |
+| `.mush-grid` | 1 | 1 | 2 |
+| `.mush-grid img` | 1 | 1 | 2 |
+| `.mush-grid img:nth-child(3n+1)` | 1 | 1 | 2 |
+| `.timeline` | 1 | 1 | 2 |
+| `.header-top` | 3 | 2 | 5 |
+| `.site-search` | 3 | 4 | 7 |
+| `.site-search input` | 2 | 1 | 3 |
 | `.site-search input::placeholder` | 2 | 0 | 2 |
-| `.contact-strip,.resident-order` | 2 | 0 | 2 |
-| `.hero-copy>p:not(.eyebrow)` | 3 | 0 | 3 |
-| `.section-head>a` | 2 | 0 | 2 |
-| `.legend-grid` | 2 | 0 | 2 |
-| `.choice-grid.two` | 3 | 0 | 3 |
-| `.variant-grid` | 6 | 0 | 6 |
-| `.variant` | 2 | 0 | 2 |
+| `.contact-strip` | 1 | 1 | 2 |
+| `.resident-order` | 1 | 1 | 2 |
+| `button` | 2 | 0 | 2 |
+| `.constructor-shell` | 1 | 1 | 2 |
+| `.constructor-preview` | 1 | 1 | 2 |
+| `.legend-grid` | 1 | 1 | 2 |
+| `.constructor-controls` | 1 | 1 | 2 |
+| `.choice-grid.two` | 2 | 2 | 4 |
+| `.variant` | 3 | 0 | 3 |
+| `.variant.selected` | 2 | 0 | 2 |
+| `.variant-grid` | 2 | 4 | 6 |
 | `.variant img` | 2 | 0 | 2 |
 | `.variant span` | 2 | 0 | 2 |
-| `.eye-grid` | 3 | 0 | 3 |
-| `.eye` | 3 | 0 | 3 |
-| `.detail-grid` | 3 | 0 | 3 |
+| `.eye-grid` | 2 | 1 | 3 |
+| `.eye` | 2 | 1 | 3 |
+| `.detail-grid` | 2 | 2 | 4 |
 | `.detail-grid label` | 2 | 0 | 2 |
-| `.name-row` | 4 | 0 | 4 |
+| `.name-row` | 2 | 2 | 4 |
 | `.name-row input` | 2 | 0 | 2 |
-| `.estimate` | 4 | 0 | 4 |
-| `.estimate strong,.estimate small` | 2 | 0 | 2 |
-| `.estimate strong` | 2 | 0 | 2 |
+| `.estimate` | 2 | 2 | 4 |
+| `.estimate strong` | 4 | 0 | 4 |
+| `.estimate small` | 2 | 0 | 2 |
 | `.constructor-note` | 2 | 0 | 2 |
-| `.workshop-map-section` | 4 | 0 | 4 |
-| `.map-heading` | 3 | 0 | 3 |
-| `.map-heading p` | 2 | 0 | 2 |
-| `.workshop-map` | 4 | 0 | 4 |
-| `.workshop-map::before` | 2 | 0 | 2 |
-| `.workshop-map::after` | 3 | 0 | 3 |
-| `.map-place` | 3 | 0 | 3 |
-| `.map-place strong` | 5 | 0 | 5 |
-| `.map-place small` | 5 | 0 | 5 |
-| `.map-icon` | 3 | 0 | 3 |
-| `.place-house` | 3 | 0 | 3 |
-| `.place-forest` | 3 | 0 | 3 |
-| `.place-dragons` | 3 | 0 | 3 |
-| `.place-stables` | 3 | 0 | 3 |
-| `.place-archive` | 3 | 0 | 3 |
-| `.place-birth` | 5 | 0 | 5 |
-| `.map-path` | 2 | 0 | 2 |
-| `.birth-masthead` | 3 | 0 | 3 |
-| `.birth-masthead h1` | 5 | 0 | 5 |
-| `.birth-masthead>p:last-child` | 4 | 0 | 4 |
-| `.birth-page .constructor-shell` | 6 | 0 | 6 |
-| `.birth-page .constructor-preview` | 3 | 0 | 3 |
-| `.preview-stage` | 6 | 0 | 6 |
-| `.preview-stage::before` | 2 | 0 | 2 |
-| `.preview-stage img` | 4 | 0 | 4 |
-| `.preview-badges` | 4 | 0 | 4 |
-| `.preview-badges span` | 3 | 0 | 3 |
-| `.stage-hint` | 4 | 0 | 4 |
-| `.birth-legend` | 4 | 0 | 4 |
-| `.legend-heading` | 4 | 0 | 4 |
-| `.legend-heading h2` | 4 | 0 | 4 |
-| `.birth-page .legend-grid` | 6 | 0 | 6 |
-| `.birth-page .legend-grid>div` | 5 | 0 | 5 |
-| `.birth-page .legend-grid b` | 3 | 0 | 3 |
-| `.birth-page .legend-grid p` | 3 | 0 | 3 |
-| `.birth-page .constructor-controls` | 5 | 0 | 5 |
-| `.birth-page .constructor-steps` | 5 | 0 | 5 |
-| `.birth-page .constructor-steps button` | 5 | 0 | 5 |
-| `.birth-page .constructor-steps button:not(:last-child)::after` | 3 | 0 | 3 |
-| `.birth-page .constructor-steps i` | 5 | 0 | 5 |
+| `.fairy-layer` | 1 | 1 | 2 |
+| `.story-mode-toggle` | 1 | 1 | 2 |
+| `.workshop-map-section` | 2 | 4 | 6 |
+| `.map-heading` | 2 | 1 | 3 |
+| `.map-heading p` | 1 | 1 | 2 |
+| `.workshop-map` | 2 | 3 | 5 |
+| `.workshop-map::before` | 1 | 1 | 2 |
+| `.workshop-map::after` | 1 | 2 | 3 |
+| `.map-place` | 2 | 4 | 6 |
+| `.map-place strong` | 3 | 4 | 7 |
+| `.map-place small` | 3 | 3 | 6 |
+| `.map-icon` | 2 | 1 | 3 |
+| `.place-house` | 2 | 3 | 5 |
+| `.place-forest` | 2 | 3 | 5 |
+| `.place-dragons` | 2 | 3 | 5 |
+| `.place-stables` | 2 | 3 | 5 |
+| `.place-archive` | 2 | 3 | 5 |
+| `.place-birth` | 2 | 5 | 7 |
+| `.map-path` | 2 | 2 | 4 |
+| `.birth-page` | 2 | 1 | 3 |
+| `.birth-masthead` | 2 | 3 | 5 |
+| `.birth-masthead h1` | 2 | 4 | 6 |
+| `.birth-masthead>p:last-child` | 2 | 2 | 4 |
+| `.birth-page .constructor-shell` | 2 | 5 | 7 |
+| `.birth-page .constructor-preview` | 2 | 4 | 6 |
+| `.preview-stage` | 2 | 5 | 7 |
+| `.preview-stage::before` | 1 | 1 | 2 |
+| `.preview-stage img` | 2 | 2 | 4 |
+| `.preview-stage[data-tone-preview=] .stage-glow` | 4 | 0 | 4 |
+| `.preview-badges` | 2 | 2 | 4 |
+| `.preview-badges span` | 2 | 1 | 3 |
+| `.stage-hint` | 2 | 2 | 4 |
+| `.birth-legend` | 2 | 2 | 4 |
+| `.legend-heading` | 2 | 2 | 4 |
+| `.legend-heading h2` | 2 | 2 | 4 |
+| `.birth-page .legend-grid` | 2 | 4 | 6 |
+| `.birth-page .legend-grid>div` | 2 | 3 | 5 |
+| `.birth-page .legend-grid b` | 2 | 1 | 3 |
+| `.birth-page .legend-grid p` | 2 | 1 | 3 |
+| `.birth-page .constructor-controls` | 2 | 5 | 7 |
+| `.birth-page .constructor-steps` | 2 | 3 | 5 |
+| `.birth-page .constructor-steps button` | 2 | 3 | 5 |
+| `.birth-page .constructor-steps button:not(:last-child)::after` | 1 | 2 | 3 |
+| `.birth-page .constructor-steps i` | 2 | 3 | 5 |
 | `.birth-page .constructor-steps .active` | 2 | 0 | 2 |
 | `.birth-page .constructor-steps .active i` | 2 | 0 | 2 |
-| `.birth-page .constructor-controls fieldset` | 2 | 0 | 2 |
-| `.birth-page .constructor-controls legend` | 2 | 0 | 2 |
-| `.field-intro` | 3 | 0 | 3 |
-| `.birth-page .choice-grid.two` | 4 | 0 | 4 |
-| `.birth-page .choice` | 5 | 0 | 5 |
-| `.birth-page .choice>span` | 3 | 0 | 3 |
-| `.birth-page .choice b` | 3 | 0 | 3 |
-| `.birth-page .choice small` | 3 | 0 | 3 |
+| `.birth-page .constructor-controls fieldset` | 1 | 1 | 2 |
+| `.birth-page .constructor-controls legend` | 1 | 1 | 2 |
+| `.field-intro` | 2 | 1 | 3 |
+| `.birth-page .choice-grid.two` | 1 | 3 | 4 |
+| `.birth-page .choice` | 2 | 3 | 5 |
+| `.birth-page .choice>span` | 2 | 1 | 3 |
+| `.birth-page .choice b` | 2 | 1 | 3 |
+| `.birth-page .choice small` | 2 | 1 | 3 |
 | `.birth-page .choice.selected` | 2 | 0 | 2 |
-| `.birth-page .variant-grid` | 4 | 0 | 4 |
-| `.birth-page .variant` | 2 | 0 | 2 |
-| `.birth-page .variant img` | 2 | 0 | 2 |
-| `.birth-page .variant span` | 2 | 0 | 2 |
+| `.birth-page .variant-grid` | 1 | 3 | 4 |
+| `.birth-page .variant` | 1 | 1 | 2 |
+| `.birth-page .variant img` | 1 | 1 | 2 |
+| `.birth-page .variant span` | 1 | 1 | 2 |
 | `.option-block h3` | 2 | 0 | 2 |
-| `.birth-page .eye-grid` | 4 | 0 | 4 |
-| `.birth-page .eye` | 4 | 0 | 4 |
-| `.birth-page .eye span` | 4 | 0 | 4 |
-| `.birth-page .detail-grid` | 4 | 0 | 4 |
-| `.birth-page .detail-grid label` | 2 | 0 | 2 |
-| `.birth-page .detail-grid label>span` | 2 | 0 | 2 |
-| `.birth-page .detail-grid b` | 2 | 0 | 2 |
-| `.birth-page .detail-grid small` | 2 | 0 | 2 |
-| `.birth-page .estimate` | 3 | 0 | 3 |
-| `.birth-page .estimate strong` | 2 | 0 | 2 |
-| `.birth-page .estimate .btn` | 3 | 0 | 3 |
-| `.birth-page .constructor-note` | 2 | 0 | 2 |
-| `.preview-badges span:nth-child(2)` | 2 | 0 | 2 |
-| `.birth-page .constructor-steps button span` | 2 | 0 | 2 |
-| `.birth-page .name-row` | 2 | 0 | 2 |
-| `.stage-hint span` | 3 | 0 | 3 |
-| `.mobile-nav a span` | 2 | 0 | 2 |
-| `.mobile-nav a b` | 2 | 0 | 2 |
-| `.mobile-nav a.active` | 2 | 0 | 2 |
-| `.map-heading h2` | 3 | 0 | 3 |
-| `.hero>img` | 2 | 0 | 2 |
-| `.hero::after` | 2 | 0 | 2 |
-| `.map-path,.map-sky` | 2 | 0 | 2 |
-| `.world-grid,.grid.cards` | 2 | 0 | 2 |
-| `.prose h2` | 2 | 0 | 2 |
-| `.birth-page .legend-grid>div+div` | 2 | 0 | 2 |
-| `.birth-page fieldset` | 2 | 0 | 2 |
-| `.birth-page legend` | 2 | 0 | 2 |
-| `.eye span` | 2 | 0 | 2 |
+| `.birth-page .eye-grid` | 2 | 2 | 4 |
+| `.birth-page .eye` | 1 | 3 | 4 |
+| `.birth-page .eye span` | 1 | 3 | 4 |
+| `.birth-page .detail-grid` | 1 | 4 | 5 |
+| `.birth-page .detail-grid label` | 1 | 1 | 2 |
+| `.birth-page .detail-grid label>span` | 1 | 1 | 2 |
+| `.birth-page .detail-grid b` | 1 | 1 | 2 |
+| `.birth-page .detail-grid small` | 1 | 1 | 2 |
+| `.birth-page .name-row input` | 1 | 1 | 2 |
+| `.birth-page .name-row .ghost-btn` | 1 | 1 | 2 |
+| `.birth-page .estimate` | 1 | 2 | 3 |
+| `.birth-page .estimate strong` | 1 | 1 | 2 |
+| `.birth-page .estimate .btn` | 1 | 2 | 3 |
+| `.birth-page .constructor-note` | 1 | 1 | 2 |
+| `[data-world-theme=]` | 4 | 0 | 4 |
+| `.resident-layer` | 1 | 1 | 2 |
+| `.hero>img` | 1 | 1 | 2 |
+| `.hero::after` | 1 | 1 | 2 |
+| `.hero-copy>p:not(.eyebrow)` | 1 | 2 | 3 |
+| `.map-heading h2` | 1 | 2 | 3 |
+| `.map-sky` | 1 | 1 | 2 |
+| `.grid.cards` | 2 | 1 | 3 |
+| `.world-tile>div` | 1 | 1 | 2 |
+| `.prose h2` | 1 | 1 | 2 |
+| `.birth-page .legend-grid>div+div` | 1 | 1 | 2 |
+| `.birth-page fieldset` | 1 | 1 | 2 |
+| `.birth-page legend` | 1 | 1 | 2 |
+| `.eye span` | 1 | 1 | 2 |
+| `.section-head>a` | 0 | 2 | 2 |
+| `.preview-badges span:nth-child(2)` | 0 | 2 | 2 |
+| `.birth-page .constructor-steps button span` | 0 | 2 | 2 |
+| `.birth-page .name-row` | 0 | 2 | 2 |
+| `.stage-hint span` | 0 | 3 | 3 |
+| `.mobile-nav a span` | 0 | 3 | 3 |
+| `.mobile-nav a b` | 0 | 3 | 3 |
+| `.mobile-nav a.active` | 0 | 2 | 2 |
 
 ## Critical duplicate base selectors
-- `.site-header`
-- `.main-nav`
-- `.site-search`
-- `.mobile-nav`
-- `.birth-page .constructor-shell`
-- `.preview-stage`
-- `.birth-page .variant-grid`
+- `.site-header` — 5 base definitions
+- `.main-nav` — 4 base definitions
+- `.site-search` — 3 base definitions
+- `.mobile-nav` — 3 base definitions
+- `.birth-page .constructor-shell` — 2 base definitions
+- `.preview-stage` — 2 base definitions
