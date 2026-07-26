@@ -95,6 +95,50 @@ document.addEventListener('click', (event) => {
   if (searchForm && !searchForm.contains(event.target) && searchResults) searchResults.hidden = true;
 });
 
+// version.json is the single source of truth for the release shown on the site.
+// A unique query parameter and no-store keep this publication check independent
+// from a visitor's browser cache and from stale GitHub Pages responses.
+async function loadSiteVersion() {
+  const serviceVersion = document.querySelector('[data-site-version]');
+  const serviceDate = document.querySelector('[data-release-date]');
+  const serviceName = document.querySelector('[data-release-name]');
+  const serviceSummary = document.querySelector('[data-release-summary]');
+
+  try {
+    const response = await fetch(`assets/data/version.json?release-check=${Date.now()}`, {
+      cache: 'no-store'
+    });
+    if (!response.ok) throw new Error(`Version request failed: ${response.status}`);
+
+    const release = await response.json();
+    if (!release.version || !release.releaseDate) throw new Error('Version data is incomplete');
+
+    const formattedDate = new Intl.DateTimeFormat('ru-RU', {
+      day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC'
+    }).format(new Date(`${release.releaseDate}T00:00:00Z`));
+
+    document.querySelectorAll('.site-footer').forEach((footer) => {
+      const versionLink = document.createElement('a');
+      versionLink.className = 'site-version-link';
+      versionLink.href = 'changelog.html';
+      versionLink.textContent = `Версия ${release.version} · обновлено ${formattedDate}`;
+      versionLink.setAttribute('aria-label', `Что нового в версии ${release.version} от ${formattedDate}`);
+      footer.appendChild(versionLink);
+    });
+
+    if (serviceVersion) serviceVersion.textContent = release.version;
+    if (serviceDate) serviceDate.textContent = formattedDate;
+    if (serviceName) serviceName.textContent = release.name;
+    if (serviceSummary) serviceSummary.textContent = release.summary;
+  } catch (error) {
+    document.querySelectorAll('[data-version-fallback]').forEach((element) => {
+      element.hidden = false;
+    });
+  }
+}
+
+loadSiteVersion();
+
 // Resident links carry ?resident=... so the contact page can acknowledge the chosen work.
 if (document.body && window.location.pathname.endsWith('contacts.html')) {
   const resident = new URLSearchParams(window.location.search).get('resident');
