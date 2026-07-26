@@ -76,8 +76,8 @@
       stage.dataset.tonePreview = tone;
       residentStage?.setAttribute('data-eye-tone', tone);
       residentStage?.classList.toggle('tone-fire', tone === 'fire');
-      if (eyesLayer) { eyesLayer.alt = `${eye[0]} глаза`; eyesLayer.style.opacity = '1'; eyesLayer.style.filter = `hue-rotate(${tone === 'fire' ? 25 : tone === 'forest' ? 95 : tone === 'mystic' ? 210 : tone === 'night' ? 270 : 0}deg) saturate(1.4)`; }
-      if (decorationLayer) { decorationLayer.alt = details.length ? details.join(', ') : ''; decorationLayer.style.opacity = details.length ? '.8' : '0'; }
+      if (eyesLayer) eyesLayer.textContent = `${eye[0]} глаза — визуальный слой этого взгляда готовится`;
+      if (decorationLayer) decorationLayer.innerHTML = details.length ? details.map(detail => `<li>${detail} <small>Будет добавлено Мастером вручную</small></li>`).join('') : '<li>Украшения не выбраны</li>';
       stage.classList.remove('is-changing');
     }, 130);
 

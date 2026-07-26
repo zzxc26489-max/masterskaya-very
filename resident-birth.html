@@ -8,16 +8,14 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&amp;family=Prata&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/styles.css?v=060" rel="stylesheet"/>
-<link href="assets/css/v060.css?v=060" rel="stylesheet"/>
-</head>
+<link rel="stylesheet" href="assets/css/unified.css?v=080"></head>
 <body class="birth-page">
 <header class="site-header">
 <div class="header-top"><a class="logo" href="index.html"><span>✦</span><b>Мастерская Веры</b></a><button aria-controls="main-navigation" aria-expanded="false" aria-label="Открыть меню" class="menu-toggle" type="button">☰</button></div>
 <form action="worlds.html" autocomplete="off" class="site-search" method="get" role="search"><span aria-hidden="true">⌕</span><input aria-label="Поиск по сайту" name="q" placeholder="Найти Жителя или коллекцию…" type="search"/><div class="search-results" hidden></div></form>
-<nav class="main-nav" id="main-navigation"><a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="birth.html">Рождение Жителей</a><a class="active" href="resident-birth.html">Создать Жителя</a><a href="chronicles.html">Хроники Мастерской</a><a href="about.html">О Мастерской</a><a href="guardian-path.html">Свиток для путника</a><a href="contacts.html">Связаться с Мастерской</a></nav>
+<nav class="main-nav" id="main-navigation"><a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="birth.html">Рождение Жителей</a><a href="chronicles.html">Хроники Мастерской</a><a href="about.html">О Мастерской</a><a href="guardian-path.html">Свиток для путника</a><a href="contacts.html">Связаться с Мастерской</a></nav>
 </header>
-<main>
+<main><p class="constructor-inspiration">Этот Житель служит вдохновением. Новый облик будет уникальным.</p>
 <section class="birth-masthead">
   <p class="eyebrow">Рождение Жителя</p>
   <h1>Создайте образ будущей легенды</h1>
@@ -27,7 +25,7 @@
   <div class="constructor-preview">
     <div class="preview-stage" data-tone-preview="ice">
       <div class="stage-glow" aria-hidden="true"></div>
-      <div class="resident-stage" aria-label="Собираемый образ Жителя"><img class="resident-layer resident-layer--body" id="residentPreview" src="assets/images/constructor/dragon-light-4.webp" alt="Базовый образ Жителя"/><img class="resident-layer resident-layer--eyes" id="residentEyes" src="" alt="" aria-hidden="true"/><img class="resident-layer resident-layer--decoration" id="residentDecoration" src="" alt="" aria-hidden="true"/></div>
+      <div class="resident-stage" aria-label="Собираемый образ Жителя"><img class="resident-layer resident-layer--body" id="residentPreview" src="assets/images/constructor/dragon-light-4.webp" alt="Базовый образ Жителя"/><span class="constructor-eye-marker" id="residentEyes" role="status">Визуальный слой этого взгляда готовится</span><ul class="constructor-details" id="residentDecoration" aria-live="polite"></ul></div>
       <div class="preview-badges"><span>Создан вручную</span><span>Единственный экземпляр</span></div>
       <button class="stage-hint" type="button" aria-label="Подсказка по просмотру">↻ <span>Листайте варианты справа</span></button>
     </div>

@@ -345,3 +345,10 @@ body.page-leave main,body.page-leave .site-footer{opacity:0;transform:translateY
 .resident-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block;transition:opacity .26s ease,filter .26s ease}.resident-layer--eyes,.resident-layer--decoration{pointer-events:none}.resident-stage:focus-within{outline:2px solid var(--color-gold)}
 .tone-fire .resident-layer--body{filter:saturate(1.15) sepia(.2)}
 @media (prefers-reduced-motion:reduce){.resident-layer{transition:none}}
+
+/* Constructor honest states and shared resident cards */
+.constructor-eye-marker { display:grid; place-items:center; min-height:44px; padding:.5rem; color:var(--color-gold-soft); border:1px dashed var(--color-border-dark); border-radius:var(--radius-small); font-size:.8rem; text-align:center; }
+.constructor-details { margin:.75rem 0 0; padding:0; list-style:none; color:var(--color-text-on-dark); }
+.constructor-details li { padding:.45rem .6rem; border-bottom:1px solid var(--color-border-dark); }
+.constructor-details small { display:block; color:var(--color-text-on-dark-muted); }
+@media (max-width:600px) { .resident-filters { display:grid; grid-template-columns:1fr; gap:.5rem; } .resident-filters button { min-height:44px; } }
