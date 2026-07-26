@@ -24,7 +24,7 @@
 <nav class="main-nav" id="main-navigation"><a class="active" href="index.html">Главная</a>
 <a class="" href="worlds.html">Коллекции</a>
 <a class="" href="birth.html">Рождение Жителей</a>
-<a class="" href="chronicles.html">Хроники Мастерской</a>
+<a href="resident-birth.html">Создать Жителя</a><a class="" href="chronicles.html">Хроники Мастерской</a>
 <a class="" href="about.html">О Мастерской</a>
 <a class="" href="guardian-path.html">Свиток для путника</a>
 <a class="" href="contacts.html">Связаться с Мастерской</a></nav>
@@ -36,6 +36,19 @@
 <p>Здесь рождаются авторские Жители — сказочные создания, сделанные вручную. У каждого свой характер, своя история и свой будущий Хранитель.</p>
 <div class="hero-actions"><a class="btn" href="contacts.html">Стать Хранителем</a><a class="ghost-btn" href="worlds.html">Посмотреть коллекции</a></div></div>
 </section>
+<section class="workshop-map-section" aria-labelledby="map-title">
+<div class="map-heading"><p class="eyebrow">Карта Мастерской</p><h2 id="map-title">Выберите дорогу в сказочный мир</h2><p>Каждая область ведёт в свою часть Мастерской. На телефоне карту можно листать пальцем.</p></div>
+<div class="workshop-map" role="navigation" aria-label="Карта разделов Мастерской">
+  <div class="map-sky" aria-hidden="true"><span></span><span></span><span></span></div>
+  <a class="map-place place-house" href="about.html"><span class="map-icon">⌂</span><strong>Дом Мастера</strong><small>О Вере и Мастерской</small></a>
+  <a class="map-place place-forest" href="world-mushrooms.html"><span class="map-icon">♧</span><strong>Лес Тайн</strong><small>Лесные Жители</small></a>
+  <a class="map-place place-dragons" href="world-dragons.html"><span class="map-icon">◈</span><strong>Логово Драконов</strong><small>Древние существа</small></a>
+  <a class="map-place place-stables" href="resident-carousel-horses.html"><span class="map-icon">♞</span><strong>Конюшня Хранителей</strong><small>Карусельные кони</small></a>
+  <a class="map-place place-archive" href="chronicles.html"><span class="map-icon">✧</span><strong>Архив Легенд</strong><small>Хроники Мастерской</small></a>
+  <a class="map-place place-birth" href="resident-birth.html"><span class="map-icon">✦</span><strong>Круг Рождения</strong><small>Создать своего Жителя</small></a>
+  <div class="map-path path-one" aria-hidden="true"></div><div class="map-path path-two" aria-hidden="true"></div>
+</div>
+</section>
 <section class="section dark"><div class="section-head"><div><p class="eyebrow">Коллекции</p><h2>Истории, объединённые общей атмосферой</h2></div><a href="worlds.html">Все коллекции →</a></div><div class="world-grid">
 <a class="world-tile" href="world-winter.html"><img alt="Зимние легенды" height="2400" loading="lazy" src="assets/images/optimized/1784746111826-1280.webp" width="1800"/><div><h3>Зимние легенды</h3><p>Жители, связанные с зимой, Новым годом, морозными узорами, снегом и ощущением праздничного чуда.</p></div></a>
 <a class="world-tile" href="world-mushrooms.html"><img alt="Тайны леса" height="1536" loading="lazy" src="assets/images/optimized/mushroom-01-1152.webp" width="1152"/><div><h3>Тайны леса</h3><p>Образы, вдохновлённые лесом, его растениями, животными и скрытыми среди деревьев историями.</p></div></a>
@@ -43,12 +56,12 @@
 <a class="world-tile" href="world-russian.html"><img alt="Русские сказки" height="2669" loading="lazy" src="assets/images/optimized/1784746111765-1280.webp" width="1800"/><div><h3>Русские сказки</h3><p>Сказочные и авторские персонажи, вдохновлённые русским фольклором и атмосферой старых историй.</p></div></a>
 </div></section>
 <section class="section alt"><div class="section-head"><div><p class="eyebrow">Совсем недавно</p><h2>Новинки Мастерской</h2></div><a href="residents.html">Все Жители →</a></div><p class="section-intro">Новые работы и Жители, недавно появившиеся в Мастерской.</p><div class="grid cards">
-<a class="card" href="resident-white-dragon.html"><img alt="Белый Дракон" height="1067" loading="lazy" src="assets/images/optimized/1784746111784-800.webp" width="800"/><div class="card-body"><div class="meta"><span class="tag">Древние существа</span></div><h3>Белый Дракон</h3><p>Познакомиться с Жителем и узнать его историю.</p></div></a>
-<a class="card" href="resident-sirin.html"><img alt="Сирин" height="1186" loading="lazy" src="assets/images/optimized/1784746111765-800.webp" width="800"/><div class="card-body"><div class="meta"><span class="tag">Русские сказки</span></div><h3>Сирин</h3><p>Авторский образ, вдохновлённый старинными преданиями.</p></div></a>
-<a class="card" href="resident-rat-king.html"><img alt="Крысиный Король" height="1092" loading="lazy" src="assets/images/optimized/1784746112291-800.webp" width="800"/><div class="card-body"><div class="meta"><span class="tag">Зимние легенды</span></div><h3>Крысиный Король</h3><p>Узнать характер, детали и историю создания.</p></div></a>
+<a class="card" href="resident-white-dragon.html"><img alt="Белый Дракон" height="1067" loading="lazy" src="assets/images/optimized/1784746111784-800.webp" width="800"/><div class="card-body"><span class="availability order">Под заказ</span><div class="meta"><span class="tag">Древние существа</span></div><h3>Белый Дракон</h3><p>Познакомиться с Жителем и узнать его историю.</p></div></a>
+<a class="card" href="resident-sirin.html"><img alt="Сирин" height="1186" loading="lazy" src="assets/images/optimized/1784746111765-800.webp" width="800"/><div class="card-body"><span class="availability stock">В наличии</span><div class="meta"><span class="tag">Русские сказки</span></div><h3>Сирин</h3><p>Авторский образ, вдохновлённый старинными преданиями.</p></div></a>
+<a class="card" href="resident-rat-king.html"><img alt="Крысиный Король" height="1092" loading="lazy" src="assets/images/optimized/1784746112291-800.webp" width="800"/><div class="card-body"><span class="availability order">Под заказ</span><div class="meta"><span class="tag">Зимние легенды</span></div><h3>Крысиный Король</h3><p>Узнать характер, детали и историю создания.</p></div></a>
 </div></section>
 <section class="section"><div class="split"><img alt="Процесс создания Жителя" height="2400" loading="lazy" src="assets/images/optimized/1784746111805-1280.webp" width="1800"/><div class="prose"><p class="eyebrow">Рождение Жителей</p><h2>От замысла до последнего штриха</h2><p>Каждая работа создаётся вручную: от первого наброска и каркаса до лепки, деталей и росписи. В разделе о рождении Жителей можно увидеть этот путь шаг за шагом.</p><a class="ghost-btn" href="birth.html">Увидеть процесс</a></div></div></section>
-<section class="section contact-strip"><div><p class="eyebrow">Ваш будущий Житель</p><h2>Стать Хранителем</h2><p>Выберите готового Жителя или расскажите Мастерской, какой образ вы хотели бы воплотить.</p></div><a class="btn" href="contacts.html">Стать Хранителем</a></section>
+<section class="section alt constructor-teaser"><div class="split"><img alt="Варианты воплощения Жителя" loading="lazy" src="assets/images/constructor/dragon-light-3.webp"/><div class="prose"><p class="eyebrow">Новый интерактивный набросок</p><h2>Рождение Жителя</h2><p>Выберите основу, расцветку, глаза и украшения. Вместе с обликом изменятся имя, характер, происхождение и история будущего Жителя.</p><a class="btn" href="resident-birth.html">Создать своего Жителя</a></div></div></section><section class="section contact-strip"><div><p class="eyebrow">Ваш будущий Житель</p><h2>Стать Хранителем</h2><p>Выберите готового Жителя или расскажите Мастерской, какой образ вы хотели бы воплотить.</p></div><a class="btn" href="contacts.html">Стать Хранителем</a></section>
 </main>
 <footer class="site-footer">
 <div><b>Мастерская Веры</b><p>Авторские Жители, созданные вручную. У каждого — свой характер и история.</p></div>
@@ -57,11 +70,11 @@
 <a href="birth.html">Рождение Жителей</a>
 <a href="guardian-path.html">Свиток для путника</a>
 <a href="contacts.html">Связаться с Мастерской</a>
-</div>
+<a href="resident-birth.html">Рождение Жителя</a></div>
 <small>Наличие готовых работ, сроки и условия индивидуального заказа подтверждаются перед оформлением.</small>
 </footer>
 <nav class="mobile-nav">
-<a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="residents.html">Жители</a><a href="contacts.html">Связаться</a>
+<a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="residents.html">Жители</a><a href="resident-birth.html">Создать</a><a href="contacts.html">Связаться</a>
 </nav>
 <script src="assets/js/app.js"></script>
 </body>
