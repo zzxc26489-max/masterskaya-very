@@ -114,8 +114,9 @@
   }));
 
   root.querySelectorAll('[data-detail]').forEach(input => input.addEventListener('change', update));
-  root.querySelectorAll('[data-detail]').forEach(input => { input.checked = presetDecorations.includes(input.value); });
+  root.querySelectorAll('[data-detail]').forEach(input => { input.checked = presetDecorations.includes(input.dataset.detail); });
   if (sourceNote && preset) sourceNote.textContent = `Источник вдохновения: ${preset.name}. Этот Житель служит вдохновением. Новый облик будет уникальным.`;
+  update();
   custom.addEventListener('input', update);
 
   document.getElementById('randomName').addEventListener('click', () => {
