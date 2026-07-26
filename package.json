@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check:v2:js": "node --check v2/assets/js/site.js",
+    "check:v2:js": "node --check v2/assets/js/site.js && node --check v2/assets/js/constructor.js",
     "check:v2:audit": "node scripts/v2-audit.mjs",
     "test:v2:browser": "playwright test",
     "test:v2": "npm run check:v2:js && npm run check:v2:audit && npm run test:v2:browser"
