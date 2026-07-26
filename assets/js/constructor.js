@@ -42,6 +42,7 @@
   let tone = 'ice';
   const presetId = new URLSearchParams(location.search).get('preset');
   const preset = window.RESIDENTS?.find(r => r.id === presetId);
+  const presetDecorations = preset?.constructorPreset?.decorations || [];
   if (preset?.constructorPreset) { base = preset.constructorPreset.base || base; index = preset.constructorPreset.index ?? index; tone = preset.constructorPreset.tone || tone; }
 
   const grid = document.getElementById('variantGrid');
@@ -55,6 +56,7 @@
   const character = document.getElementById('residentCharacter');
   const story = document.getElementById('residentStory');
   const custom = document.getElementById('customName');
+  const sourceNote = document.getElementById('inspirationSource');
 
   function renderVariants() {
     grid.innerHTML = variants[base].map((v, i) => `
@@ -112,6 +114,8 @@
   }));
 
   root.querySelectorAll('[data-detail]').forEach(input => input.addEventListener('change', update));
+  root.querySelectorAll('[data-detail]').forEach(input => { input.checked = presetDecorations.includes(input.value); });
+  if (sourceNote && preset) sourceNote.textContent = `Источник вдохновения: ${preset.name}. Этот Житель служит вдохновением. Новый облик будет уникальным.`;
   custom.addEventListener('input', update);
 
   document.getElementById('randomName').addEventListener('click', () => {
