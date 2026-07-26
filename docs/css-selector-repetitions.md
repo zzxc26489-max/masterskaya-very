@@ -8,16 +8,8 @@
 | `body` | 4 | 2 | 6 |
 | `a` | 3 | 0 | 3 |
 | `img` | 3 | 0 | 3 |
-| `main` | 2 | 0 | 2 |
-| `.site-header` | 5 | 7 | 12 |
-| `.logo` | 3 | 1 | 4 |
-| `.logo span` | 2 | 0 | 2 |
-| `.logo b` | 3 | 4 | 7 |
-| `.menu-toggle` | 3 | 3 | 6 |
-| `.main-nav` | 4 | 5 | 9 |
-| `.main-nav.open` | 1 | 3 | 4 |
-| `.main-nav a` | 2 | 3 | 5 |
-| `.main-nav a.active` | 3 | 0 | 3 |
+| `.logo` | 1 | 1 | 2 |
+| `.logo b` | 1 | 4 | 5 |
 | `h1` | 3 | 0 | 3 |
 | `h2` | 3 | 0 | 3 |
 | `h3` | 2 | 0 | 2 |
@@ -49,17 +41,11 @@
 | `.gallery img` | 1 | 1 | 2 |
 | `.gallery img:first-child` | 1 | 1 | 2 |
 | `.site-footer` | 1 | 1 | 2 |
-| `.mobile-nav` | 3 | 3 | 6 |
-| `.mobile-nav a` | 1 | 4 | 5 |
 | `.page-hero` | 1 | 1 | 2 |
 | `.mush-grid` | 1 | 1 | 2 |
 | `.mush-grid img` | 1 | 1 | 2 |
 | `.mush-grid img:nth-child(3n+1)` | 1 | 1 | 2 |
 | `.timeline` | 1 | 1 | 2 |
-| `.header-top` | 3 | 2 | 5 |
-| `.site-search` | 3 | 4 | 7 |
-| `.site-search input` | 2 | 1 | 3 |
-| `.site-search input::placeholder` | 2 | 0 | 2 |
 | `.contact-strip` | 1 | 1 | 2 |
 | `.resident-order` | 1 | 1 | 2 |
 | `button` | 2 | 0 | 2 |
@@ -111,7 +97,6 @@
 | `.preview-stage` | 2 | 5 | 7 |
 | `.preview-stage::before` | 1 | 1 | 2 |
 | `.preview-stage img` | 2 | 2 | 4 |
-| `.preview-stage[data-tone-preview=] .stage-glow` | 4 | 0 | 4 |
 | `.preview-badges` | 2 | 2 | 4 |
 | `.preview-badges span` | 2 | 1 | 3 |
 | `.stage-hint` | 2 | 2 | 4 |
@@ -157,7 +142,6 @@
 | `.birth-page .estimate strong` | 1 | 1 | 2 |
 | `.birth-page .estimate .btn` | 1 | 2 | 3 |
 | `.birth-page .constructor-note` | 1 | 1 | 2 |
-| `[data-world-theme=]` | 4 | 0 | 4 |
 | `.resident-layer` | 1 | 1 | 2 |
 | `.hero>img` | 1 | 1 | 2 |
 | `.hero::after` | 1 | 1 | 2 |
@@ -171,19 +155,24 @@
 | `.birth-page fieldset` | 1 | 1 | 2 |
 | `.birth-page legend` | 1 | 1 | 2 |
 | `.eye span` | 1 | 1 | 2 |
+| `.site-header` | 1 | 7 | 8 |
+| `.header-top` | 1 | 2 | 3 |
+| `.site-search` | 1 | 4 | 5 |
+| `.main-nav` | 1 | 5 | 6 |
+| `.mobile-nav` | 1 | 3 | 4 |
+| `.menu-toggle` | 0 | 3 | 3 |
+| `.main-nav a` | 0 | 3 | 3 |
 | `.section-head>a` | 0 | 2 | 2 |
+| `.main-nav.open` | 0 | 3 | 3 |
 | `.preview-badges span:nth-child(2)` | 0 | 2 | 2 |
 | `.birth-page .constructor-steps button span` | 0 | 2 | 2 |
 | `.birth-page .name-row` | 0 | 2 | 2 |
 | `.stage-hint span` | 0 | 3 | 3 |
+| `.mobile-nav a` | 0 | 4 | 4 |
 | `.mobile-nav a span` | 0 | 3 | 3 |
 | `.mobile-nav a b` | 0 | 3 | 3 |
 | `.mobile-nav a.active` | 0 | 2 | 2 |
 
 ## Critical duplicate base selectors
-- `.site-header` — 5 base definitions
-- `.main-nav` — 4 base definitions
-- `.site-search` — 3 base definitions
-- `.mobile-nav` — 3 base definitions
 - `.birth-page .constructor-shell` — 2 base definitions
 - `.preview-stage` — 2 base definitions

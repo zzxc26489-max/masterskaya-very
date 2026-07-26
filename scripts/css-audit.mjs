@@ -15,7 +15,7 @@ const protectedSel=['.site-header','.main-nav','.site-search','.mobile-nav','.bi
 const baseCounts={}, mediaCounts={};
 function parseSelectors(source){
   const clean=source.replace(/\/\*[\s\S]*?\*\//g,''); let depth=0, mediaDepth=0, keyDepth=0, token='', quote='';
-  for(let i=0;i<clean.length;i++){const c=clean[i]; if(quote){if(c===quote&&clean[i-1]!=='\\')quote=''; continue} if(c==='"'||c==="'"){quote=c;continue}
+  for(let i=0;i<clean.length;i++){const c=clean[i]; if(quote){token+=c;if(c===quote&&clean[i-1]!=='\\')quote=''; continue} if(c==='"'||c==="'"){token+=c;quote=c;continue}
     if(c==='{'){const head=token.trim(); token=''; const isMedia=/^@media\b/i.test(head), isKey=/^@(?:-\w+-)?keyframes\b/i.test(head); depth++; if(isMedia)mediaDepth=depth; if(isKey)keyDepth=depth; if(!head.startsWith('@')&&!keyDepth){const target=mediaDepth&&depth>mediaDepth?mediaCounts:baseCounts; for(const sel of head.split(',')){const x=sel.trim();if(x)target[x]=(target[x]||0)+1}} continue}
     if(c==='}'){if(depth===keyDepth)keyDepth=0;if(depth===mediaDepth)mediaDepth=0;depth--;token='';continue} token+=c;
   }
