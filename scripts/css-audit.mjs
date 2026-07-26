@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+const css=fs.readFileSync('assets/css/unified.css','utf8');
+const vars=[...css.matchAll(/var\(--([\w-]+)/g)].map(m=>m[1]);
+const defs=[...css.matchAll(/--([\w-]+)\s*:/g)].map(m=>m[1]);
+const missing=[...new Set(vars.filter(v=>!defs.includes(v)&&!['dur','drift','glow-x','glow-y','world-bg'].includes(v)))];
+if(missing.length) throw new Error(`Undefined CSS vars: ${missing.join(', ')}`);
+if(!/grid-template-columns:\s*repeat\(5,\s*minmax\(0,\s*1fr\)\)/.test(css)) throw new Error('mobile-nav must have five columns');
+if(/\.site-header\s*\{[^}]*?(?<!-)height\s*:\s*\d+px/.test(css)) throw new Error('fixed header height remains');
+for(const f of ['resident-birth.html','worlds.html','residents.html']) if(!fs.existsSync(f)) console.warn(`missing ${f}`);
+console.log('CSS audit passed');
