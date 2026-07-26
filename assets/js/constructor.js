@@ -42,6 +42,7 @@
   let tone = 'ice';
   const presetId = new URLSearchParams(location.search).get('preset');
   const preset = window.RESIDENTS?.find(r => r.id === presetId);
+  const presetDecorations = preset?.constructorPreset?.decorations || [];
   if (preset?.constructorPreset) { base = preset.constructorPreset.base || base; index = preset.constructorPreset.index ?? index; tone = preset.constructorPreset.tone || tone; }
 
   const grid = document.getElementById('variantGrid');
@@ -55,6 +56,7 @@
   const character = document.getElementById('residentCharacter');
   const story = document.getElementById('residentStory');
   const custom = document.getElementById('customName');
+  const sourceNote = document.getElementById('inspirationSource');
 
   function renderVariants() {
     grid.innerHTML = variants[base].map((v, i) => `
@@ -76,8 +78,8 @@
       stage.dataset.tonePreview = tone;
       residentStage?.setAttribute('data-eye-tone', tone);
       residentStage?.classList.toggle('tone-fire', tone === 'fire');
-      if (eyesLayer) { eyesLayer.alt = `${eye[0]} глаза`; eyesLayer.style.opacity = '1'; eyesLayer.style.filter = `hue-rotate(${tone === 'fire' ? 25 : tone === 'forest' ? 95 : tone === 'mystic' ? 210 : tone === 'night' ? 270 : 0}deg) saturate(1.4)`; }
-      if (decorationLayer) { decorationLayer.alt = details.length ? details.join(', ') : ''; decorationLayer.style.opacity = details.length ? '.8' : '0'; }
+      if (eyesLayer) eyesLayer.textContent = `${eye[0]} глаза — визуальный слой этого взгляда готовится`;
+      if (decorationLayer) decorationLayer.innerHTML = details.length ? details.map(detail => `<li>${detail} <small>Будет добавлено Мастером вручную</small></li>`).join('') : '<li>Украшения не выбраны</li>';
       stage.classList.remove('is-changing');
     }, 130);
 
@@ -112,6 +114,9 @@
   }));
 
   root.querySelectorAll('[data-detail]').forEach(input => input.addEventListener('change', update));
+  root.querySelectorAll('[data-detail]').forEach(input => { input.checked = presetDecorations.includes(input.dataset.detail); });
+  if (sourceNote && preset) sourceNote.textContent = `Источник вдохновения: ${preset.name}. Этот Житель служит вдохновением. Новый облик будет уникальным.`;
+  update();
   custom.addEventListener('input', update);
 
   document.getElementById('randomName').addEventListener('click', () => {
