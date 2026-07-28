@@ -8,10 +8,10 @@
   <title>Новые материалы — Мастерская Веры V2</title>
   <link rel="stylesheet" href="assets/css/site.css">
   <style>
-    .mist-hero { position: relative; overflow: hidden; }
+    .mist-hero { position: relative; overflow: hidden; contain: paint; }
     .mist-hero::before,
-    .mist-hero::after { content: ""; position: absolute; left: -14%; right: -14%; bottom: -18%; height: 42%; pointer-events: none; z-index: 1; filter: blur(24px); }
-    .mist-hero::before { background: radial-gradient(ellipse at 12% 75%, rgb(205 210 214 / 36%), transparent 52%), radial-gradient(ellipse at 62% 82%, rgb(158 166 172 / 38%), transparent 60%), radial-gradient(ellipse at 96% 70%, rgb(223 225 225 / 28%), transparent 48%); }
+    .mist-hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: -18%; height: 42%; pointer-events: none; z-index: 1; filter: blur(24px); }
+    .mist-hero::before { background: radial-gradient(ellipse at 0% 75%, rgb(205 210 214 / 36%), transparent 52%), radial-gradient(ellipse at 58% 82%, rgb(158 166 172 / 38%), transparent 60%), radial-gradient(ellipse at 100% 70%, rgb(223 225 225 / 28%), transparent 48%); }
     .mist-hero::after { bottom: -24%; height: 34%; opacity: .72; background: radial-gradient(ellipse at 0% 74%, rgb(230 232 232 / 30%), transparent 50%), radial-gradient(ellipse at 52% 84%, rgb(184 190 194 / 34%), transparent 60%), radial-gradient(ellipse at 100% 72%, rgb(214 218 220 / 28%), transparent 48%); }
     .mist-hero > .shell { position: relative; z-index: 2; }
     .materials-board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
@@ -19,8 +19,7 @@
     .material-note h3 { margin-bottom: .6rem; font-size: 1.55rem; }
     .material-note p { color: var(--ink-soft); font-size: var(--step--1); }
     .quote-panel--vera blockquote { font-size: clamp(1.5rem, 2.4vw, 2.55rem); }
-    .asset-warning { padding: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-lg); background: rgb(255 248 235 / 66%); }
-    @media (prefers-reduced-motion: no-preference) { .mist-hero::before { animation: v2MistA 18s ease-in-out infinite alternate; } .mist-hero::after { animation: v2MistB 23s ease-in-out infinite alternate; } @keyframes v2MistA { from { transform: translateX(-2%); } to { transform: translateX(3%); } } @keyframes v2MistB { from { transform: translateX(2%); } to { transform: translateX(-3%); } } }
+    @media (prefers-reduced-motion: no-preference) { .mist-hero::before { animation: v2MistA 18s ease-in-out infinite alternate; } .mist-hero::after { animation: v2MistB 23s ease-in-out infinite alternate; } @keyframes v2MistA { from { transform: translateX(-1.5%); } to { transform: translateX(1.5%); } } @keyframes v2MistB { from { transform: translateX(1.5%); } to { transform: translateX(-1.5%); } } }
     @media (max-width: 900px) { .materials-board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     @media (max-width: 620px) { .materials-board { grid-template-columns: 1fr; } .mist-hero::before, .mist-hero::after { height: 35%; filter: blur(18px); } }
   </style>
