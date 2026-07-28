@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="220" viewBox="0 0 640 220" role="img" aria-label="Орнаментальная карта миров">
+  <rect width="640" height="220" rx="28" fill="#17110f"/>
+  <path d="M48 156c82-100 153 21 236-69 72-77 138 22 308-34" fill="none" stroke="#ddc28f" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+  <path d="M83 58c56 26 104 22 144-12M370 163c52-37 99-47 143-22" fill="none" stroke="#b79259" stroke-width="2" opacity=".6"/>
+  <g fill="#f8e8bd">
+    <circle cx="80" cy="128" r="6"/><circle cx="216" cy="64" r="6"/><circle cx="318" cy="102" r="6"/><circle cx="468" cy="92" r="6"/><circle cx="578" cy="54" r="6"/>
+  </g>
+  <g fill="none" stroke="#64262a" stroke-width="2" opacity=".7">
+    <circle cx="80" cy="128" r="18"/><circle cx="216" cy="64" r="18"/><circle cx="468" cy="92" r="18"/>
+  </g>
+  <path d="M535 158l17 9 17-9-9 17 9 17-17-9-17 9 9-17z" fill="none" stroke="#ddc28f" stroke-width="3" stroke-linejoin="round"/>
+</svg>

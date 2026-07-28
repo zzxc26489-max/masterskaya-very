@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" role="img" aria-label="Знак Хранителя">
+  <defs><radialGradient id="g" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#f8e8bd"/><stop offset="55%" stop-color="#b79259"/><stop offset="100%" stop-color="#64262a"/></radialGradient></defs>
+  <rect width="160" height="160" rx="80" fill="#17110f"/>
+  <circle cx="80" cy="80" r="56" fill="none" stroke="url(#g)" stroke-width="3"/>
+  <path d="M80 23l11 40 40 17-40 17-11 40-11-40-40-17 40-17z" fill="none" stroke="#ddc28f" stroke-width="4" stroke-linejoin="round"/>
+  <circle cx="80" cy="80" r="9" fill="#ddc28f"/>
+  <path d="M50 126c14-10 46-10 60 0" fill="none" stroke="#8f6d40" stroke-width="3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,73 @@
+name: V2 browser checks
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - redesign/v2
+    paths:
+      - 'v2/**'
+      - 'tests/**'
+      - 'scripts/v2-audit.mjs'
+      - 'scripts/serve-static.mjs'
+      - 'package.json'
+      - 'playwright.config.mjs'
+      - '.github/workflows/v2-browser-check.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'v2/**'
+      - 'tests/**'
+      - 'scripts/v2-audit.mjs'
+      - 'scripts/serve-static.mjs'
+      - 'package.json'
+      - 'playwright.config.mjs'
+      - '.github/workflows/v2-browser-check.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  browser-checks:
+    name: Chromium screenshots and smoke checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install test dependencies
+        run: npm install --no-package-lock --no-audit --no-fund
+
+      - name: Install Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Run V2 static checks
+        run: |
+          node --check v2/assets/js/site.js
+          node scripts/v2-audit.mjs
+          git diff --check
+
+      - name: Run Playwright browser checks
+        run: npx playwright test
+        env:
+          CI: 'true'
+
+      - name: Upload screenshots, traces and report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v5
+        with:
+          name: v2-browser-artifacts-${{ github.run_attempt }}
+          path: |
+            artifacts/v2-screenshots/
+            playwright-report/
+            test-results/
+          if-no-files-found: warn
+          retention-days: 21
