@@ -12,7 +12,8 @@ const pages = [
   { name: 'birth', path: '/v2/birth.html' },
   { name: 'constructor', path: '/v2/constructor.html' },
   { name: 'world-dragons', path: '/v2/world-dragons.html' },
-  { name: 'resident-white-dragon', path: '/v2/resident-white-dragon.html' }
+  { name: 'resident-white-dragon', path: '/v2/resident-white-dragon.html' },
+  { name: 'photo-preview', path: '/v2/photo-preview.html' }
 ];
 
 const viewports = [
