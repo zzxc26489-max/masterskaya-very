@@ -5,7 +5,7 @@
   const variants = {
     dragon: [
       {
-        name: 'Перламутровый страж',
+        name: 'Северный страж',
         image: '../assets/images/constructor/dragon-light-4.webp',
         origin: 'северных скал и зимней тишины',
         character: 'спокойный, наблюдательный, преданный',
@@ -44,7 +44,7 @@
       {
         name: 'Серебряная песня',
         image: '../assets/images/constructor/horse-7.webp',
-        origin: 'лунной карусели',
+        origin: 'лунной дороги',
         character: 'таинственная, спокойная, музыкальная',
         story: 'она слышит музыку, которую не слышит больше никто'
       }
@@ -52,10 +52,10 @@
   };
 
   const tones = {
-    ice: { title: 'северным светом', sentence: 'В нём есть ясность морозного утра и спокойная преданность.' },
-    fire: { title: 'янтарным огнём', sentence: 'В нём живёт тёплая искра, смелость и желание защищать.' },
-    forest: { title: 'лесной тропой', sentence: 'Он чувствует настроение леса, корней и живых существ.' },
-    mystic: { title: 'тайным знаком', sentence: 'Он замечает то, что скрыто от обычного взгляда.' }
+    ice: { title: 'северного света', sentence: 'В нём есть ясность морозного утра и спокойная преданность.' },
+    fire: { title: 'янтарного огня', sentence: 'В нём живёт тёплая искра, смелость и желание защищать.' },
+    forest: { title: 'лесной тропы', sentence: 'Он чувствует настроение леса, корней и живых существ.' },
+    mystic: { title: 'тайного знака', sentence: 'Он замечает то, что скрыто от обычного взгляда.' }
   };
 
   const state = { base: 'dragon', variant: 0, tone: 'ice', details: [], name: '' };
@@ -99,7 +99,7 @@
     const tone = tones[state.tone];
     const customName = nameInput.value.trim();
     const name = customName || variant.name;
-    const detailText = state.details.length ? state.details.join(', ') : 'без выбранных дополнительных деталей';
+    const detailText = state.details.length ? state.details.join(', ') : 'особые детали пока не выбраны';
 
     previewImage.src = variant.image;
     previewImage.alt = `Предпросмотр: ${name}`;
@@ -107,7 +107,7 @@
     previewText.textContent = `${variant.character}. ${tone.sentence}`;
 
     const baseLabel = state.base === 'dragon' ? 'дракона' : 'коня';
-    const result = `Хочу Жителя в образе ${baseLabel}: ${variant.name.toLowerCase()} из ${variant.origin}, ${variant.character}, с настроением «${tone.title}». Детали: ${detailText}. Рабочее имя: ${name}. Понимаю, что это направление для индивидуальной работы, а не обещание буквальной копии.`;
+    const result = `Я хочу создать Жителя в образе ${baseLabel}: ${variant.name.toLowerCase()} из ${variant.origin}, ${variant.character}, с настроением «${tone.title}». Детали: ${detailText}. Рабочее имя: ${name}. Понимаю, что это направление для индивидуальной работы, а не обещание буквальной копии.`;
 
     summary.textContent = result;
     contactLink.href = `../contacts.html?resident=${encodeURIComponent(name)}&config=${encodeURIComponent(result)}`;
