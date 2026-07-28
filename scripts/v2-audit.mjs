@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = path.resolve('v2');
-const requiredPages = ['index.html','worlds.html','residents.html','birth.html','constructor.html','world-dragons.html','resident-white-dragon.html'];
+const requiredPages = ['index.html','worlds.html','residents.html','birth.html','constructor.html','world-dragons.html','resident-white-dragon.html','photo-preview.html'];
 const errors = [];
 
 function walk(directory) {
