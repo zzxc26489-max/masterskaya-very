@@ -1,1 +1,72 @@
-PLACEHOLDER
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#17110f">
+  <meta name="description" content="Рабочий V2-preview новых материалов Мастерской Веры: большой дракон, Азимондиас, Горынычи, Мышиная Королева, курочка и подарочный набор.">
+  <title>Новые материалы — Мастерская Веры V2</title>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+    .mist-hero { position: relative; overflow: hidden; }
+    .mist-hero::before,
+    .mist-hero::after { content: ""; position: absolute; left: -14%; right: -14%; bottom: -18%; height: 42%; pointer-events: none; z-index: 1; filter: blur(24px); }
+    .mist-hero::before { background: radial-gradient(ellipse at 12% 75%, rgb(205 210 214 / 36%), transparent 52%), radial-gradient(ellipse at 62% 82%, rgb(158 166 172 / 38%), transparent 60%), radial-gradient(ellipse at 96% 70%, rgb(223 225 225 / 28%), transparent 48%); }
+    .mist-hero::after { bottom: -24%; height: 34%; opacity: .72; background: radial-gradient(ellipse at 0% 74%, rgb(230 232 232 / 30%), transparent 50%), radial-gradient(ellipse at 52% 84%, rgb(184 190 194 / 34%), transparent 60%), radial-gradient(ellipse at 100% 72%, rgb(214 218 220 / 28%), transparent 48%); }
+    .mist-hero > .shell { position: relative; z-index: 2; }
+    .materials-board { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .material-note { min-height: 18rem; padding: var(--space-3); display: flex; flex-direction: column; justify-content: end; border: 1px solid var(--line); border-radius: var(--radius-md); background: linear-gradient(150deg, rgb(255 255 255 / 40%), rgb(255 255 255 / 12%)); box-shadow: var(--shadow-soft); }
+    .material-note h3 { margin-bottom: .6rem; font-size: 1.55rem; }
+    .material-note p { color: var(--ink-soft); font-size: var(--step--1); }
+    .quote-panel--vera blockquote { font-size: clamp(1.5rem, 2.4vw, 2.55rem); }
+    .asset-warning { padding: var(--space-3); border: 1px solid var(--line); border-radius: var(--radius-lg); background: rgb(255 248 235 / 66%); }
+    @media (prefers-reduced-motion: no-preference) { .mist-hero::before { animation: v2MistA 18s ease-in-out infinite alternate; } .mist-hero::after { animation: v2MistB 23s ease-in-out infinite alternate; } @keyframes v2MistA { from { transform: translateX(-2%); } to { transform: translateX(3%); } } @keyframes v2MistB { from { transform: translateX(2%); } to { transform: translateX(-3%); } } }
+    @media (max-width: 900px) { .materials-board { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 620px) { .materials-board { grid-template-columns: 1fr; } .mist-hero::before, .mist-hero::after { height: 35%; filter: blur(18px); } }
+  </style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Перейти к содержанию</a>
+<header class="site-header"><div class="header-inner"><a class="logo" href="index.html" aria-label="Мастерская Веры — главная"><span class="logo-mark" aria-hidden="true">✦</span><span class="logo-name">Мастерская Веры</span></a><nav class="main-nav" id="main-navigation" data-navigation aria-label="Основная навигация"><a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="residents.html">Жители</a><a href="birth.html">Рождение</a><a href="constructor.html">Конструктор</a><a class="is-active" aria-current="page" href="photo-preview.html">Новые фото</a><a href="../contacts.html">Связаться</a></nav><a class="button button--primary header-cta" href="constructor.html">Начать образ</a><button class="menu-toggle" data-menu-toggle type="button" aria-controls="main-navigation" aria-expanded="false" aria-label="Открыть меню">☰</button></div></header>
+<main id="main-content">
+  <section class="page-hero mist-hero">
+    <div class="shell">
+      <p class="eyebrow on-dark">Новые материалы · V2 preview</p>
+      <h1>Когда Житель берёт власть в свои лапы</h1>
+      <p class="lede">Эта страница фиксирует новый пакет материалов для Мастерской: большой дракон Веры, Азимондиас, два Горыныча, Мышиная Королева, малыш-дракон, курочка и подарочный набор с Мышиным Королём и Щелкунчиком.</p>
+      <div class="cluster"><a class="button button--primary" href="#materials">Смотреть структуру</a><a class="button button--secondary" href="#vera-quote">Голос Веры</a></div>
+    </div>
+  </section>
+
+  <section class="section section--light" id="materials">
+    <div class="shell">
+      <div class="section-heading"><div><p class="eyebrow">Архив пополняется</p><h2>Материалы, которые нужно превратить в страницы</h2><p class="lede">Фото уже разобраны по смыслу. Следующий шаг — загрузить сами JPG/WebP в V2 assets, после чего эти блоки станут полноценной галереей.</p></div></div>
+      <div class="materials-board">
+        <article class="material-note"><span class="status status--available">Процесс и финал</span><p class="eyebrow">Древние существа</p><h3>Азимондиас</h3><p>Сине-белый дракон с полным путём рождения: фольга, проволока, форма, взгляд, покраска и финальный зимний образ.</p></article>
+        <article class="material-note"><span class="status status--reserved">Рубежная работа</span><p class="eyebrow">Древние существа</p><h3>Большой дракон</h3><p>Первая масштабная фигура Веры. Работа ушла от первоначального замысла и начала диктовать сценарий своими лапами.</p></article>
+        <article class="material-note"><span class="status">Готовая работа</span><p class="eyebrow">Зимние легенды</p><h3>Мышиная Королева</h3><p>Три мышиные головы, чёрно-фиолетовое платье, белый воротник и театральная власть мышиного двора.</p></article>
+        <article class="material-note"><span class="status">Готовая работа</span><p class="eyebrow">Древние существа</p><h3>Змей Горыныч 2</h3><p>Огненная версия: янтарь, бордо, кремовая чешуя, крылья, шипы и горячий характер.</p></article>
+        <article class="material-note"><span class="status">Готовая работа</span><p class="eyebrow">Русские сказки</p><h3>Змей Горыныч 1</h3><p>Зелёный коронованный Горыныч: яркий, царственный, сказочный и немного самодовольный.</p></article>
+        <article class="material-note"><span class="status status--reserved">Рождается</span><p class="eyebrow">Древние существа</p><h3>Малыш-дракон</h3><p>Нежный дракон в работе: большой синий глаз, мягкие крылья и ещё не проявленная палитра.</p></article>
+        <article class="material-note"><span class="status">Готовая работа</span><p class="eyebrow">Домашние легенды</p><h3>Курочка</h3><p>Маленький солнечный Житель тихого двора. Не всякая легенда должна рычать.</p></article>
+        <article class="material-note"><span class="status status--available">Подарочный набор</span><p class="eyebrow">Зимние легенды</p><h3>Мышиный Король и Щелкунчик</h3><p>Коробка, крафтовая стружка, открытка и ощущение, что Житель приезжает как маленькая церемония встречи.</p></article>
+        <article class="material-note"><span class="status">Атмосфера</span><p class="eyebrow">Визуальная система</p><h3>Серый туман</h3><p>Холодный дым снизу и по бокам — мягкий слой для древних существ, чтобы добавить глубину и не закрыть фактуру ручной работы.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--paper" id="vera-quote">
+    <div class="shell section-grid section-grid--split">
+      <div class="quote-panel quote-panel--vera reveal"><p class="eyebrow">Голос Веры</p><blockquote>«Пока ты сидишь и прорабатываешь мелочи, работа берёт власть в свои лапы и начинает диктовать тебе сценарий».</blockquote><p>Это нужно оставить на сайте почти как есть: не маркетинг, а живой голос Мастера.</p></div>
+      <div class="reveal"><p class="eyebrow">Большой дракон</p><h2>Рубеж, который греет сильнее огненного дыхания</h2><p class="lede">Вера написала, что лепила одно, а вышло другое — и именно в этом проявилась магия творчества. Большой дракон стал первой масштабной фигурой в её практике и доказательством, что Мастерская может больше, чем сама о себе думала.</p><ul class="process-list"><li><b>01</b><span><strong>Сюжет</strong>Работа меняет первоначальный замысел и начинает диктовать форму.</span></li><li><b>02</b><span><strong>Масштаб</strong>Первая крупная фигура становится личным рубежом.</span></li><li><b>03</b><span><strong>Сайт</strong>Этот текст просится на страницу рождения и отдельную страницу Жителя.</span></li></ul></div>
+    </div>
+  </section>
+
+  <section class="section section--wine">
+    <div class="shell callout reveal"><p class="eyebrow on-dark">Что делать дальше</p><h2>Загрузить реальные фото как ассеты и заменить текстовые карточки настоящей галереей</h2><p>Текущая страница уже рабочая и проверяемая. Но финальный красивый вариант должен использовать реальные фото из V2-папок, а не держать материалы только в переписке.</p><div class="cluster"><a class="button button--primary" href="birth.html">Страница рождения</a><a class="button button--secondary" href="world-dragons.html">Мир драконов</a></div></div>
+  </section>
+</main>
+<footer class="site-footer"><div class="shell footer-grid"><div><a class="logo" href="index.html"><span class="logo-mark" aria-hidden="true">✦</span><span class="logo-name">Мастерская Веры</span></a><p class="footer-copy">V2 preview новых материалов. Старый сайт и main не изменены.</p></div><nav class="footer-links" aria-label="Навигация в подвале"><a href="index.html">Главная</a><a href="worlds.html">Коллекции</a><a href="residents.html">Жители</a><a href="birth.html">Рождение</a><a href="constructor.html">Конструктор</a><a href="photo-preview.html">Новые фото</a></nav><p class="footer-note">После визуального утверждения фото нужно вынести в нормальные V2 assets.</p></div></footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
